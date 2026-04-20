@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新北市托嬰中心／幼兒園立案完整流程甘特圖</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans TC', 'PingFang TC', sans-serif;
+      background: #f8fafc; color: #1e293b;
+      font-size: 13px; padding: 10px 16px 20px;
+    }
+    h1 { font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 2px; }
+    .subtitle { font-size: 11px; color: #64748b; margin-bottom: 6px; }
+    .update-info {
+      font-size: 11px; color: #7c3aed;
+      background: #f5f3ff; border: 1px solid #ddd6fe;
+      border-radius: 5px; padding: 3px 10px;
+      display: inline-block; margin-bottom: 8px;
+    }
+    /* legend */
+    .legend { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; align-items:center; }
+    .legend-item { display:flex; align-items:center; gap:5px; font-size:11px; color:#475569; }
+    .legend-line  { width:2px; height:14px; background:#f59e0b; border-radius:1px; }
+    .legend-delay-line { width:2px; height:14px; background:#ef4444; border-radius:1px; }
+    .legend-sep   { width:1px; height:14px; background:#e2e8f0; margin:0 4px; }
+    .hint { font-size:11px; color:#0f172a; font-weight:700; text-decoration:underline; }
+    /* badges */
+    .delay-badge { font-size:9px; background:#fee2e2; color:#b91c1c; padding:1px 5px; border-radius:3px; font-weight:700; }
+    .ahead-badge { font-size:9px; background:#d1fae5; color:#065f46; padding:1px 5px; border-radius:3px; font-weight:700; }
+    /* status cards */
+    .status-bar  { display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+    .status-card { background:white; border:1px solid #e2e8f0; border-radius:7px; padding:6px 12px; min-width:110px; flex:1; }
+    .status-card-label { font-size:10px; color:#64748b; margin-bottom:2px; }
+    .status-card-val   { font-size:14px; font-weight:700; }
+    .status-card-sub   { font-size:10px; color:#94a3b8; margin-top:1px; }
+    /* chart */
+    #gc-chart { position:relative; width:100%; }
+    .header-row {
+      display:flex;
+      position:sticky; top:0; z-index:20;
+      background:#f8fafc;
+      border-bottom:1px solid #cbd5e0;
+      padding:3px 0 2px; margin-bottom:2px;
+    }
+    .label-header {
+      width:180px; flex-shrink:0;
+      font-size:11px; font-weight:600; color:#64748b;
+      padding-right:8px; display:flex; align-items:flex-end;
+    }
+    .months-area { flex:1; display:flex; }
+    .month-cell {
+      text-align:center; font-size:10px; color:#94a3b8;
+      border-left:0.5px solid #e2e8f0; flex-shrink:0; line-height:1.3;
+    }
+    .chart-body { position:relative; }
+    .phase-wrapper {
+      display:flex; align-items:stretch; cursor:pointer;
+      border-radius:4px; margin-bottom:2px; transition:background 0.12s;
+    }
+    .phase-wrapper:hover { background:#f1f5f9; }
+    /* label col — compact */
+    .label-col {
+      width:180px; flex-shrink:0;
+      padding:3px 8px 3px 0;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .phase-name {
+      font-size:11px; font-weight:700; color:#0f172a;
+      line-height:1.3; display:flex; align-items:center; gap:4px; flex-wrap:wrap;
+    }
+    .dur-k { font-size:10px; color:#166534; font-weight:600; }
+    .dur-d { font-size:10px; color:#1e40af; font-weight:600; }
+    .est-w { font-size:9px; color:#94a3b8; }
+    /* bars */
+    .bars-col { flex:1; display:flex; flex-direction:column; gap:2px; padding:3px 0; }
+    /* today line */
+    #today-line {
+      position:absolute; top:0; bottom:0; width:2px;
+      background:#f59e0b; border-radius:1px; pointer-events:none; z-index:10;
+    }
+    #today-label {
+      position:absolute; top:-18px; transform:translateX(-50%);
+      font-size:10px; font-weight:700; color:#f59e0b;
+      white-space:nowrap; background:#f8fafc; padding:0 2px;
+    }
+    /* detail panel */
+    .inline-detail-row { display:flex; margin-bottom:8px; }
+    .inline-detail-spacer { width:180px; flex-shrink:0; }
+    .inline-detail-content {
+      flex:1; padding:16px 20px; border-radius:8px;
+      border:1px solid #e2e8f0; border-left-width:4px;
+      background:#f8fafc; animation:slideDown 0.18s ease;
+    }
+    @keyframes slideDown {
+      from { opacity:0; transform:translateY(-6px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .detail-title { font-size:16px; font-weight:700; color:#0f172a; margin-bottom:8px; border-bottom:1px solid #e2e8f0; padding-bottom:8px; }
+    .actual-dates-section { margin-top:10px; padding:10px 14px; background:white; border-radius:6px; border:1px solid #e2e8f0; }
+    .actual-dates-title { font-size:11px; font-weight:700; color:#374151; margin-bottom:6px; }
+    .dates-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+    .date-item  { font-size:11px; }
+    .date-label { color:#6b7280; }
+    .date-val   { font-weight:600; color:#111827; }
+    .date-diff-pos { font-weight:700; color:#dc2626; font-size:10px; }
+    .date-diff-neg { font-weight:700; color:#059669; font-size:10px; }
+    .date-diff-zero{ font-weight:700; color:#6b7280;  font-size:10px; }
+    .detail-table { display:flex; flex-direction:column; width:100%; }
+    .detail-row   { display:flex; gap:12px; width:100%; }
+    .detail-cell  { flex:1; display:flex; flex-direction:column; padding:0 4px; }
+    .detail-unit-label { font-size:13px; font-weight:600; padding:3px 10px; border-radius:4px; display:inline-block; margin-bottom:6px; }
+    .detail-sub-title  { font-size:13px; font-weight:600; color:#334155; margin-bottom:6px; display:flex; align-items:center; gap:5px; }
+    .detail-list { list-style:none; padding:0; margin:0; font-size:13px; color:#334155; }
+    .detail-list li { margin:4px 0; line-height:1.5; }
+    .docs-row { margin-top:12px; padding-top:12px; border-top:1px dashed #cbd5e1; }
+    /* summary */
+    .summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+    .summary-card { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px 14px; }
+    .summary-label { font-size:11px; color:#64748b; margin-bottom:3px; }
+    .summary-value { font-size:15px; font-weight:600; }
+    .summary-sub   { font-size:11px; color:#94a3b8; }
+    /* filter buttons */
+    .filter-bar { display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap; align-items:center; }
+    .filter-btn {
+      font-size:11px; font-weight:600; padding:4px 12px;
+      border-radius:20px; border:1.5px solid #e2e8f0;
+      background:white; color:#64748b; cursor:pointer; transition:all 0.15s;
+    }
+    .filter-btn:hover { border-color:#94a3b8; color:#1e293b; }
+    .filter-btn.active { background:#0f172a; color:white; border-color:#0f172a; }
+    /* delay popup */
+    .delay-popup {
+      display:none; position:fixed; inset:0; z-index:100;
+      background:rgba(0,0,0,.4); align-items:center; justify-content:center;
+    }
+    .delay-popup.open { display:flex; }
+    .delay-popup-box {
+      background:white; border-radius:12px; padding:20px 24px;
+      max-width:480px; width:90%; box-shadow:0 20px 60px rgba(0,0,0,.25);
+      animation:popIn .18s ease;
+    }
+    @keyframes popIn { from{opacity:0;transform:scale(.94)} to{opacity:1;transform:scale(1)} }
+    .delay-popup-title { font-size:15px; font-weight:700; color:#0f172a; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; }
+    .delay-close { background:none; border:none; font-size:18px; cursor:pointer; color:#94a3b8; line-height:1; }
+    .delay-close:hover { color:#1e293b; }
+    .delay-item { display:flex; gap:10px; padding:8px 0; border-bottom:1px solid #f1f5f9; align-items:flex-start; }
+    .delay-item:last-child { border-bottom:none; }
+    .delay-dot { width:8px; height:8px; border-radius:50%; background:#ef4444; flex-shrink:0; margin-top:4px; }
+    .delay-item-title { font-size:12px; font-weight:600; color:#0f172a; margin-bottom:2px; }
+    .delay-item-desc  { font-size:11px; color:#64748b; line-height:1.5; }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>新北市托嬰中心／幼兒園立案完整流程甘特圖</h1>
+<p class="subtitle">主管機關：教育局（幼兒園）/ 社會局（托嬰中心）｜含場地裝潢時程</p>
+<div class="update-info">📋 依 蒙特梭利專案計畫表（怡慧版本）更新 ｜ 資料截止：2026-04-17</div>
+
+<div class="status-bar">
+  <div class="status-card" style="border-left:3px solid #f59e0b">
+    <div class="status-card-label">📅 今日週數</div>
+    <div class="status-card-val" style="color:#d97706">第 17 週</div>
+    <div class="status-card-sub">基準日：2025-12-24</div>
+  </div>
+  <div class="status-card" style="border-left:3px solid #ef4444; cursor:pointer;" onclick="document.getElementById('delayPopup').classList.add('open')" title="點擊查看延遲詳情">
+    <div class="status-card-label">⚠️ 設立確認 延遲 <span style="font-size:9px;color:#94a3b8;">（點擊查看）</span></div>
+    <div class="status-card-val" style="color:#dc2626">+12 週</div>
+    <div class="status-card-sub">預估 2025-12-24 → 實際 2026-03-17</div>
+  </div>
+  <div class="status-card" style="border-left:3px solid #16a34a">
+    <div class="status-card-label">✅ 建築師合約</div>
+    <div class="status-card-val" style="color:#16a34a">已完成</div>
+    <div class="status-card-sub">03-17～03-20 簽約完成</div>
+  </div>
+  <div class="status-card" style="border-left:3px solid #2563eb">
+    <div class="status-card-label">🔄 目前進行中</div>
+    <div class="status-card-val" style="color:#2563eb">規劃設計</div>
+    <div class="status-card-sub">教育局審圖 / 4月底前圖面確認</div>
+  </div>
+  <div class="status-card" style="border-left:3px solid #7c3aed">
+    <div class="status-card-label">📌 即將進行</div>
+    <div class="status-card-val" style="color:#7c3aed">4/20–4/21</div>
+    <div class="status-card-sub">教育局圖面討論 → 實地場勘</div>
+  </div>
+</div>
+
+<!-- Delay popup -->
+<div id="delayPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="delay-popup-box">
+    <div class="delay-popup-title">
+      ⚠️ 延遲項目說明
+      <button class="delay-close" onclick="document.getElementById('delayPopup').classList.remove('open')">✕</button>
+    </div>
+    <div class="delay-item">
+      <div class="delay-dot"></div>
+      <div>
+        <div class="delay-item-title">場地評估與選址｜幼兒園 +4週、托嬰中心 +2週</div>
+        <div class="delay-item-desc">預估完成：第13週（幼）/ 第11週（嬰）<br>實際完成：第16週（2026-03-20）/ 第13週（2026-03-17）<br>原因：蕭建築師確認合規及送審圖說時程延後，設立確認實際起日 2026-03-17（較計畫延遲 12 週）</div>
+      </div>
+    </div>
+    <div class="delay-item">
+      <div class="delay-dot" style="background:#f59e0b"></div>
+      <div>
+        <div class="delay-item-title">設計規劃｜進行中（尚未完成）</div>
+        <div class="delay-item-desc">預估完成：第16週（幼）/ 第12週（嬰）<br>實際起日：2026-03-04，4月底前完成圖面確認<br>蕭建築師製作（變使、室裝）送件及圖說 03/04 起</div>
+      </div>
+    </div>
+    <div class="delay-item">
+      <div class="delay-dot" style="background:#f59e0b"></div>
+      <div>
+        <div class="delay-item-title">建築物使用執照變更｜進行中</div>
+        <div class="delay-item-desc">預估完成：第18週（幼）/ 第16週（嬰）<br>實際起日：2026-02-12，4/20 教育局圖面討論，4/21 實地場勘<br>黃結構技師合約預估 04/14 完成（尚待確認）</div>
+      </div>
+    </div>
+    <div class="delay-item">
+      <div class="delay-dot" style="background:#6b7280"></div>
+      <div>
+        <div class="delay-item-title">整體時程影響</div>
+        <div class="delay-item-desc">因前段設立確認延遲約 12 週，後續室內裝修、施工、立案等各階段預計同步順延，建議評估是否調整整體時程目標。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filter buttons -->
+<div class="filter-bar">
+  <span style="font-size:11px;color:#64748b;font-weight:600;">顯示：</span>
+  <button class="filter-btn active" onclick="setFilter('all',this)">全部</button>
+  <button class="filter-btn" onclick="setFilter('actual',this)">實際進度</button>
+  <button class="filter-btn" onclick="setFilter('done',this)">已完成</button>
+  <button class="filter-btn" onclick="setFilter('plan',this)">預估</button>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div style="display:flex;align-items:center;gap:3px;">
+      <div style="width:26px;height:7px;border-radius:2px;background:#16a34a;"></div>
+      <div style="width:26px;height:7px;border-radius:2px;background:#16a34a;opacity:.28;"></div>
+    </div>
+    <span>幼兒園（左＝實際 / 右＝預估）</span>
+  </div>
+  <div class="legend-item">
+    <div style="display:flex;align-items:center;gap:3px;">
+      <div style="width:26px;height:7px;border-radius:2px;background:#2563eb;"></div>
+      <div style="width:26px;height:7px;border-radius:2px;background:#2563eb;opacity:.28;"></div>
+    </div>
+    <span>托嬰中心（左＝實際 / 右＝預估）</span>
+  </div>
+  <div class="legend-item">
+    <div style="display:flex;align-items:center;gap:3px;">
+      <div style="width:26px;height:7px;border-radius:2px;background:#16a34a;background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(255,255,255,.4) 3px,rgba(255,255,255,.4) 6px);"></div>
+      <div style="width:26px;height:7px;border-radius:2px;background:#2563eb;background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(255,255,255,.4) 3px,rgba(255,255,255,.4) 6px);"></div>
+    </div>
+    <span>進行中</span>
+  </div>
+  <div class="legend-item"><div class="legend-line"></div>今日</div>
+  <div class="legend-item"><div class="legend-delay-line"></div>預估迄日</div>
+  <div class="legend-sep"></div>
+  <span class="hint">點擊任一列查看詳細內容</span>
+</div>
+
+<div id="gc-chart"></div>
+
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="summary-label">🏫 幼兒園總時程</div>
+    <div class="summary-value" style="color:#16a34a">64–68 週</div>
+    <div class="summary-sub">約 16–18 個月｜教育局審核 60 天</div>
+  </div>
+  <div class="summary-card">
+    <div class="summary-label">👶 托嬰中心總時程</div>
+    <div class="summary-value" style="color:#2563eb">56–60 週</div>
+    <div class="summary-sub">約 14–16 個月｜社會局審核 30 天</div>
+  </div>
+</div>
+
+<script>
+const MAX_WEEKS  = 70;
+const MONTHS     = Math.ceil(MAX_WEEKS / 4);
+const BASE_DATE  = new Date('2025-12-24');
+const TODAY      = new Date('2026-04-17');
+const CURRENT_WEEK = Math.round((TODAY - BASE_DATE)/(7*24*3600*1000)) + 1;
+
+const MONTH_LABELS = [];
+const _md = new Date(BASE_DATE); _md.setDate(1);
+for (let i = 0; i < MONTHS; i++) {
+  MONTH_LABELS.push(`${_md.getFullYear()}/${String(_md.getMonth()+1).padStart(2,'0')}`);
+  _md.setMonth(_md.getMonth()+1);
+}
+
+const GREEN = { bar:'#16a34a', light:'#dcfce7', text:'#166534' };
+const BLUE  = { bar:'#2563eb', light:'#dbeafe', text:'#1e40af' };
+
+function dateToWeek(s) {
+  if (!s) return null;
+  return Math.max(1, Math.round((new Date(s) - BASE_DATE)/(7*24*3600*1000)) + 1);
+}
+function pct(w)  { return ((w-1)/MAX_WEEKS*100).toFixed(3)+'%'; }
+function pctW(w) { return (w/MAX_WEEKS*100).toFixed(3)+'%'; }
+
+const phases = [
+  {
+    id:'p1', phaseName:'場地評估與選址', status:'done',
+    diffText:'蕭建築師合約 03-19 完成用印',
+    actualDates:{
+      k:{ startStr:'2026-02-12', endStr:'2026-03-20', startW:dateToWeek('2026-02-12'), endW:dateToWeek('2026-03-20') },
+      d:{ startStr:'2026-02-12', endStr:'2026-03-17', startW:dateToWeek('2026-02-12'), endW:dateToWeek('2026-03-17') }
+    },
+    k:{ duration:'完成', start:1, end:13,
+        actualStart:dateToWeek('2026-02-12'), actualEnd:dateToWeek('2026-03-20'),
+        delayWeeks:dateToWeek('2026-03-20')-13,
+        tasks:['尋找適合場地（1樓優先，4樓以上不得使用）','確認土地使用分區符合都市計畫法','確認與特殊設施距離（加氣站、殯葬設施等）','評估室內外面積是否符合標準','評估招收人數與編班方式','簽訂租約（5年以上公證）','✅ 蕭建築師報價立案回覆同意 (03/17~03/20)','✅ 蕭建築師合約完成用印，第一期款匯出189,000 (03/19~03/20)','✅ 蕭建築師勘查建物現況並評估合規 (02/12 起)'],
+        docs:['土地使用分區證明','建築物登記謄本','地籍圖謄本','房屋租賃契約或所有權狀'] },
+    d:{ duration:'完成', start:1, end:11,
+        actualStart:dateToWeek('2026-02-12'), actualEnd:dateToWeek('2026-03-17'),
+        delayWeeks:dateToWeek('2026-03-17')-11,
+        tasks:['確認設立地點（托嬰、幼兒園）','辦理變更使照及立案 (蕭建築師/筱凡)','✅ 設立確認實際起日：2026-03-17（較計畫延遲約 12 週）','評估建物面積與收托人數','簽訂租約（5年以上公證）'],
+        docs:['土地使用分區證明','建築物登記謄本','地籍圖謄本','房屋租賃契約或所有權狀'] }
+  },
+  {
+    id:'p2', phaseName:'設計規劃', status:'inprogress',
+    diffText:'4月底前完成圖面確認',
+    actualDates:{
+      k:{ startStr:'2026-03-04', endStr:'（進行中，4月底前）', startW:dateToWeek('2026-03-04'), endW:null },
+      d:{ startStr:'2026-03-04', endStr:'（進行中）', startW:dateToWeek('2026-03-04'), endW:null }
+    },
+    k:{ duration:'進行中', start:10, end:16,
+        actualStart:dateToWeek('2026-03-04'), actualEnd:null, delayWeeks:null,
+        tasks:['委託建築師/室內設計師規劃（MAX）','✅ Max提報設計合約、共識、簽約 (03/13)','會議討論：空間設計、材料、色系、品牌LOGO','規劃必要空間（活動室、室外、盥洗室、健康中心）','計算室內面積（2歲:2.5㎡、3歲以上:2㎡/人）','蕭建築師製作(變使、室裝)送件及圖說 (03/04起)','繪製建築物位置圖、平面圖'],
+        docs:['建築物位置圖、平面圖','消防安全設備圖說','設施及設備檢核表'] },
+    d:{ duration:'進行中', start:7, end:12,
+        actualStart:dateToWeek('2026-03-04'), actualEnd:null, delayWeeks:null,
+        tasks:['委託建築師/室內設計師規劃','消防設備配置規劃（消防技師）','空間配置設計（活動室、寢室、廚房、廁所）','每名兒童室內活動面積需達2㎡以上','Max內裝修設計師：平面規劃、室裝施工規劃','繪製擬變更平面圖說'],
+        docs:['擬變更平面圖說','消防安全設備平面圖說','空間配置說明書'] }
+  },
+  {
+    id:'p3', phaseName:'建築物使用執照變更', status:'inprogress',
+    diffText:'4/20 教育局圖面討論，4/21 實地場勘',
+    actualDates:{
+      k:{ startStr:'2026-02-12', endStr:'（進行中）', startW:dateToWeek('2026-02-12'), endW:null },
+      d:{ startStr:'2026-02-12', endStr:'（進行中）', startW:dateToWeek('2026-02-12'), endW:null }
+    },
+    k:{ duration:'進行中', start:11, end:18,
+        actualStart:dateToWeek('2026-02-12'), actualEnd:null, delayWeeks:null,
+        tasks:['確認建物是否為F3類組（幼兒園）','蕭建築師辦理變使、室裝許可手續','📌 4/20 與教育局圖面討論（托嬰B21、幼兒園A5~A9）','📌 4/21 實地場勘（蕭建築師、Joey、josh、心怡、總幹事、消技）','建管處書面審核','補正改善（如需）','取得變更使用執照','黃結構技師報價單及合約完成（預估 04/14）'],
+        docs:['建築物使用執照影本','建築物竣工圖','變更使用申請書','建物改良測量成果圖'] },
+    d:{ duration:'進行中', start:9, end:16,
+        actualStart:dateToWeek('2026-02-12'), actualEnd:null, delayWeeks:null,
+        tasks:['使變、室裝申請竣工勘驗（蕭建築師）','消防/黃結構技師：消防+防綜/結構外審','行政送審：辦理使用變更（含室裝申請）','黃結構技師使變&室裝申請送件（送件時付第二期款 20,000）','審查費：55,000','補正改善（如需）','取得變更使用執照核准'],
+        docs:['建築物使用執照影本及竣工圖','建物改良測量成果圖','結構檢討報告書（如有主要構造變更）'] }
+  },
+  {
+    id:'p4', phaseName:'室內裝修許可申請', status:'pending',
+    diffText:'', actualDates:{ k:null, d:null },
+    k:{ duration:'2-4週', start:19, end:22, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['委託合格室內裝修業者','準備室內裝修申請文件','向建管處申請室內裝修許可','取得室內裝修施工許可證'],
+        docs:['室內裝修申請書','室內裝修圖說','建築物權利證明文件','室內裝修從業者登記證影本'] },
+    d:{ duration:'2-4週', start:17, end:20, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['委託室內裝修業者','準備室內裝修申請文件','向建管處申請室內裝修許可','取得室內裝修施工許可證'],
+        docs:['室內裝修申請書','室內裝修圖說','室內裝修從業者登記證影本'] }
+  },
+  {
+    id:'p5', phaseName:'場地裝潢施工（Max）', status:'pending',
+    diffText:'4/13 已通知Max、蔡雲明經理報價與工程合約',
+    actualDates:{ k:null, d:null },
+    k:{ duration:'16-24週（預計）', start:23, end:46, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['設計施工廠商遴選發包（蔡雲明經理）—4/13 已通知Max','承攬合約製作（蔡雲明經理）','拆除工程、廢棄物清運','水電配管、管線預埋','泥作工程、隔間牆施作','地板施工、天花板工程','廚房設備、盥洗室設備安裝','消防設備安裝','空調設備、油漆粉刷','戶外遊戲設施、清潔收尾','施工及查核（營建郭協理）'],
+        docs:[] },
+    d:{ duration:'16-24週（預計）', start:21, end:44, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['設計施工廠商遴選發包（蔡雲明經理）—4/13 已通知Max','承攬合約製作（蔡雲明經理）','拆除工程、廢棄物清運','水電配管、管線預埋','泥作工程、隔間牆施作','地板施工、天花板工程','廚房/廁所設備安裝、木作工程','消防設備安裝、空調設備安裝','油漆粉刷、監視錄影設備安裝','清潔整理、設備測試、缺失改善','完工點交（營建郭協理）'],
+        docs:[] }
+  },
+  {
+    id:'p6k', phaseName:'消防查驗', status:'pending',
+    diffText:'', actualDates:{ k:null, d:null },
+    k:{ duration:'2-3週', start:47, end:49, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['向消防局申請消防安全設備查驗','消防局現場查驗','缺失改善（如需）','取得消防安全機關查驗合格證明'],
+        docs:['消防安全設備圖說','消防安全設備查驗合格證明'] },
+    d:null
+  },
+  {
+    id:'p7', phaseName:'裝修竣工查驗', status:'pending',
+    diffText:'', actualDates:{ k:null, d:null },
+    k:{ duration:'2-3週', start:50, end:52, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['申請室內裝修竣工查驗','建管處現場查驗','缺失改善複查','取得室內裝修合格證明','辦理建築物公共安全檢查申報'],
+        docs:['室內裝修合格證明','建築物公共安全檢查申報結果通知書'] },
+    d:{ duration:'3-4週', start:45, end:48, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['申請室內裝修竣工查驗','消防安全設備檢測','建管處現場查驗','缺失改善複查','取得室內裝修合格證明','辦理建築物公共安全檢查申報'],
+        docs:['室內裝修合格證明','消防安全設備檢修申報','建築物公共安全檢查申報結果通知書'] }
+  },
+  {
+    id:'p8', phaseName:'準備立案文件', status:'pending',
+    diffText:'', actualDates:{ k:null, d:null },
+    k:{ duration:'3-4週', start:53, end:56, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['準備設園計畫書','負責人身分證及三個月內刑事紀錄','辦理履行營運擔保','採購教學設備與教具（蔡雲明經理/Amber）','聘任園長及教保服務人員（Elim/Amber招募）','準備設施及設備檢核表','所系統建置（Amber、Joyce）','招牌製作（Rhoda）'],
+        docs:['設園計畫書','負責人身分證影本','三個月內警察刑事紀錄','建築物使用執照影本','消防安全設備查驗合格證明','土地及建築物使用權利證明','設施及設備檢核表','履行營運擔保證明影本'] },
+    d:{ duration:'2-3週', start:49, end:51, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['準備立案申請書','準備業務計畫書','準備人員資格文件','購買公共意外責任保險','辦理履行營運擔保定存','準備監視錄影錄音設備配置圖','採購設備與教具'],
+        docs:['托嬰中心新設立申請書','業務計畫書','履行營運擔保證明（定存）','公共意外責任保險單','火災保險單','工作人員名冊及資格文件','年度預算書','收退費基準及應行注意事項','托育契約範本','監視錄影錄音設備配置圖'] }
+  },
+  {
+    id:'p9', phaseName:'主管機關審核會勘', status:'pending',
+    diffText:'', actualDates:{ k:null, d:null },
+    k:{ duration:'6-8週', start:57, end:64, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['向新北市教育局幼兒教育科提出申請','教育局書面審查（60天內）','現場會勘（建管、消防、衛生等單位）','補正改善（如需）','複查確認'],
+        docs:[] },
+    d:{ duration:'4-5週', start:52, end:56, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['向新北市社會局兒童托育科提出申請','社會局書面初核（30天內）','發文會同衛生局','實地訪視會勘','補正改善（如需）'],
+        docs:[] }
+  },
+  {
+    id:'p10', phaseName:'核准立案', status:'pending',
+    diffText:'', actualDates:{ k:null, d:null },
+    k:{ duration:'1-2週', start:65, end:66, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['審查通過','發給設立許可證書','許可證書懸掛於園內明顯處','正式營運準備、招生（行銷企劃：林家慧）'],
+        docs:['設立許可證書'] },
+    d:{ duration:'1-2週', start:57, end:58, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['審查通過','發予核准公文','發予立案證書','正式營運準備'],
+        docs:['立案證書','設立許可函'] }
+  },
+];
+
+let activeIdx = null;
+let currentFilter = 'all'; // 'all' | 'actual' | 'done' | 'plan'
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBars();
+}
+
+function renderBars() {
+  // Re-render all bar groups based on currentFilter
+  document.querySelectorAll('.bar-group[data-phase]').forEach(grp => {
+    const phaseIdx = parseInt(grp.dataset.phase);
+    const unitType = grp.dataset.unit; // 'k' or 'd'
+    const phase = phases[phaseIdx];
+    const data  = unitType === 'k' ? phase.k : phase.d;
+    const col   = unitType === 'k' ? GREEN : BLUE;
+    if (!data) return;
+
+    const actualEl = grp.querySelector('.bar-actual');
+    const planEl   = grp.querySelector('.bar-plan-row');
+
+    if (currentFilter === 'all') {
+      if (actualEl) actualEl.style.display = '';
+      if (planEl)   planEl.style.display   = '';
+    } else if (currentFilter === 'actual' || currentFilter === 'done') {
+      if (actualEl) actualEl.style.display = '';
+      if (planEl)   planEl.style.display   = 'none';
+      // 'done' hides inprogress bars
+      if (currentFilter === 'done' && phase.status !== 'done') {
+        if (actualEl) actualEl.style.display = 'none';
+      }
+    } else if (currentFilter === 'plan') {
+      if (actualEl) actualEl.style.display = 'none';
+      if (planEl)   planEl.style.display   = '';
+    }
+  });
+}
+function setTodayLineVisible(v) {
+  const t = document.getElementById('today-line'); if(t) t.style.opacity=v?'1':'0';
+}
+function formatDiff(w) {
+  if(w==null) return '';
+  if(w>0) return `<span class="date-diff-pos">延遲 +${w} 週</span>`;
+  if(w<0) return `<span class="date-diff-neg">提前 ${Math.abs(w)} 週</span>`;
+  return `<span class="date-diff-zero">準時</span>`;
+}
+function alignLists(lK,lD,kwMap) {
+  const tK=[...lK],tD=[...lD],al=[];
+  kwMap.forEach(m=>{
+    const ki=tK.findIndex(x=>x.includes(m.k)), di=tD.findIndex(x=>x.includes(m.d));
+    if(ki!==-1&&di!==-1) al.push({k:tK.splice(ki,1)[0],d:tD.splice(di,1)[0]});
+  });
+  const mx=Math.max(tK.length,tD.length);
+  for(let i=0;i<mx;i++) al.push({k:tK[i]||'',d:tD[i]||''});
+  return al;
+}
+
+function buildDetailHTML(phase) {
+  const hasK=!!phase.k, hasD=!!phase.d;
+  const taskKW=[
+    {k:'尋找',d:'尋找'},{k:'土地使用分區',d:'土地分區'},{k:'租約',d:'租約'},
+    {k:'委託建築師',d:'委託建築師'},{k:'消防設備配置',d:'消防設備配置'},
+    {k:'向建管處申請',d:'向建管處申請'},{k:'向新北市教育局',d:'向新北市社會局'},
+    {k:'書面審查',d:'書面初核'},{k:'現場會勘',d:'實地訪視'},
+    {k:'取得變更使用執照',d:'取得變更使用執照'},{k:'委託合格室內裝修',d:'委託室內裝修'},
+    {k:'取得室內裝修施工許可',d:'取得室內裝修施工許可'},{k:'拆除工程',d:'拆除工程'},
+    {k:'水電配管',d:'水電配管'},{k:'泥作工程',d:'泥作工程'},{k:'地板施工',d:'地板施工'},
+    {k:'消防設備安裝',d:'消防設備安裝'},{k:'油漆粉刷',d:'油漆粉刷'},{k:'清潔',d:'清潔'},
+    {k:'申請室內裝修竣工查驗',d:'申請室內裝修竣工查驗'},{k:'取得室內裝修合格證明',d:'取得室內裝修合格證明'},
+    {k:'公共安全檢查申報',d:'公共安全檢查申報'},{k:'履行營運擔保',d:'履行營運擔保'},
+    {k:'採購',d:'採購'},{k:'審查通過',d:'審查通過'},{k:'正式營運',d:'正式營運'},{k:'補正改善',d:'補正改善'}
+  ];
+  const docKW=[
+    {k:'土地使用分區',d:'土地使用分區'},{k:'建築物登記謄本',d:'建築物登記謄本'},
+    {k:'地籍圖謄本',d:'地籍圖謄本'},{k:'租賃契約',d:'租賃契約'},{k:'平面圖',d:'平面圖'},
+    {k:'消防安全設備圖說',d:'消防安全設備平面圖說'},{k:'建築物使用執照',d:'建築物使用執照'},
+    {k:'竣工圖',d:'竣工圖'},{k:'測量成果圖',d:'測量成果圖'},{k:'室內裝修申請書',d:'室內裝修申請書'},
+    {k:'室內裝修圖說',d:'室內裝修圖說'},{k:'室內裝修合格證明',d:'室內裝修合格證明'},
+    {k:'公共安全檢查申報',d:'公共安全檢查申報'},{k:'計畫書',d:'計畫書'},
+    {k:'負責人身分證',d:'負責人身分證'},{k:'刑事紀錄',d:'刑事紀錄'},
+    {k:'履行營運擔保',d:'履行營運擔保'},{k:'資格文件',d:'資格文件'},
+    {k:'立案證書',d:'立案證書'},{k:'設立許可',d:'設立許可'}
+  ];
+  const aT=alignLists(hasK?phase.k.tasks:[],hasD?phase.d.tasks:[],taskKW);
+  const aD=alignLists(hasK?phase.k.docs :[],hasD?phase.d.docs :[],docKW);
+  const sc={
+    done:{bg:'#d1fae5',text:'#065f46',label:'✅ 已完成'},
+    inprogress:{bg:'#fef3c7',text:'#92400e',label:'🔄 進行中'},
+    pending:{bg:'#f1f5f9',text:'#475569',label:'⏳ 未開始'},
+  }[phase.status]||{bg:'#f1f5f9',text:'#475569',label:'⏳ 未開始'};
+
+  let dH='';
+  if(phase.status!=='pending'){
+    dH=`<div class="actual-dates-section"><div class="actual-dates-title">📊 實際進度（依 Excel 資料）</div><div class="dates-grid">`;
+    if(phase.actualDates?.k){const ak=phase.actualDates.k;
+      dH+=`<div class="date-item"><span class="date-label">🏫 幼 實際起日：</span><span class="date-val">${ak.startStr||'—'}</span></div>
+           <div class="date-item"><span class="date-label">🏫 幼 實際迄日：</span><span class="date-val">${ak.endStr||'進行中'}</span> ${formatDiff(phase.k.delayWeeks)}</div>`;}
+    if(phase.actualDates?.d){const ad=phase.actualDates.d;
+      dH+=`<div class="date-item"><span class="date-label">👶 嬰 實際起日：</span><span class="date-val">${ad.startStr||'—'}</span></div>
+           <div class="date-item"><span class="date-label">👶 嬰 實際迄日：</span><span class="date-val">${ad.endStr||'進行中'}</span> ${formatDiff(phase.d?.delayWeeks)}</div>`;}
+    dH+=`</div></div>`;
+  }
+  if(phase.diffText) dH+=`<div class="actual-dates-section" style="margin-top:8px;background:#fffbeb;border-color:#fcd34d">
+    <div class="actual-dates-title" style="color:#92400e">📌 補充說明</div>
+    <div style="font-size:12px;color:#78350f">${phase.diffText}</div></div>`;
+
+  let tbl=`<div class="detail-table"><div class="detail-row">`;
+  if(hasK) tbl+=`<div class="detail-cell">
+    <div class="detail-unit-label" style="background:${GREEN.light};color:${GREEN.text};">🏫 幼兒園（${phase.k.duration}）</div>
+    <div class="detail-sub-title">工作項目</div>
+    <ul class="detail-list">${aT.map(p=>p.k?`<li>✓ ${p.k}</li>`:'').join('')}</ul></div>`;
+  if(hasD) tbl+=`<div class="detail-cell">
+    <div class="detail-unit-label" style="background:${BLUE.light};color:${BLUE.text};">👶 托嬰中心（${phase.d.duration}）</div>
+    <div class="detail-sub-title">工作項目</div>
+    <ul class="detail-list">${aT.map(p=>p.d?`<li>✓ ${p.d}</li>`:'').join('')}</ul></div>`;
+  tbl+=`</div>`;
+  if((hasK&&phase.k.docs.length)||(hasD&&phase.d?.docs.length)){
+    tbl+=`<div class="detail-row docs-row">`;
+    if(hasK) tbl+=`<div class="detail-cell"><div class="detail-sub-title" style="color:${GREEN.text}">📄 幼兒園應備文件</div>
+      <ul class="detail-list">${aD.map(p=>p.k?`<li>• ${p.k}</li>`:'').join('')}</ul></div>`;
+    if(hasD) tbl+=`<div class="detail-cell"><div class="detail-sub-title" style="color:${BLUE.text}">📄 托嬰中心應備文件</div>
+      <ul class="detail-list">${aD.map(p=>p.d?`<li>• ${p.d}</li>`:'').join('')}</ul></div>`;
+    tbl+=`</div>`;
+  }
+  tbl+=`</div>`;
+  const bc=(hasK&&hasD)?'#94a3b8':(hasK?GREEN.bar:BLUE.bar);
+  return{borderCol:bc, html:`
+    <div class="detail-title">${phase.phaseName}
+      <span style="font-size:11px;background:${sc.bg};color:${sc.text};padding:2px 7px;border-radius:4px;margin-left:6px;font-weight:600">${sc.label}</span>
+    </div>${dH}${tbl}`};
+}
+
+function buildChart() {
+  const container = document.getElementById('gc-chart');
+
+  // sticky month header
+  const hRow = document.createElement('div');
+  hRow.className = 'header-row';
+  hRow.innerHTML = `<div class="label-header">工作階段</div><div class="months-area" id="months-area"></div>`;
+  container.appendChild(hRow);
+  const ma = document.getElementById('months-area');
+  for (let i=0; i<MONTHS; i++) {
+    const m = document.createElement('div');
+    m.className = 'month-cell';
+    m.style.cssText = `flex:0 0 ${(4/MAX_WEEKS*100).toFixed(3)}%;`;
+    m.innerHTML = `${i+1}M<br><span style="font-size:9px;color:#64748b">${MONTH_LABELS[i]||''}</span>`;
+    ma.appendChild(m);
+  }
+
+  const body = document.createElement('div');
+  body.className = 'chart-body';
+
+  phases.forEach((phase, idx) => {
+    const isDone = phase.status==='done', isIP = phase.status==='inprogress';
+    const pw = document.createElement('div');
+    pw.className = 'phase-wrapper';
+
+    // label
+    const kL = isDone?'完成':(isIP?'進行中':(phase.k?.duration||''));
+    const dL = isDone?'完成':(isIP?'進行中':(phase.d?.duration||''));
+    let dbg='';
+    if(phase.k?.delayWeeks>0)  dbg=`<span class="delay-badge">+${phase.k.delayWeeks}w</span>`;
+    if(phase.k?.delayWeeks<0)  dbg=`<span class="ahead-badge">${phase.k.delayWeeks}w</span>`;
+
+    const lc = document.createElement('div');
+    lc.className='label-col';
+    if(isDone) lc.style.opacity='0.65';
+    lc.innerHTML=`
+      <div class="phase-name">${idx+1}. ${phase.phaseName} ${dbg}</div>
+      <div style="margin-top:2px;display:flex;flex-direction:column;gap:2px;">
+        ${phase.k ? `<div style="display:flex;gap:3px;align-items:center;flex-wrap:wrap;">
+          <span class="dur-k">幼 ${kL}</span>
+          <span style="font-size:9px;color:#94a3b8;">－預估${phase.k.end - phase.k.start + 1}週</span>
+        </div>` : ''}
+        ${phase.d ? `<div style="display:flex;gap:3px;align-items:center;flex-wrap:wrap;">
+          <span class="dur-d">嬰 ${dL}</span>
+          <span style="font-size:9px;color:#94a3b8;">－預估${phase.d.end - phase.d.start + 1}週</span>
+        </div>` : ''}
+      </div>`;
+    pw.appendChild(lc);
+
+    // bars — TWO separate rows per unit: actual (top) + plan (bottom), never overlapping
+    const bc = document.createElement('div');
+    bc.className = 'bars-col';
+
+    // Build one track row (fixed height, grid lines optional)
+    const makeTrack = (H, withGrid) => {
+      const t = document.createElement('div');
+      t.style.cssText = `position:relative;width:100%;height:${H}px;flex-shrink:0;`;
+      if (withGrid) {
+        for (let i=0; i<MONTHS; i++) {
+          const gl = document.createElement('div');
+          gl.style.cssText = `position:absolute;top:0;bottom:0;left:${(i*4/MAX_WEEKS*100).toFixed(3)}%;width:.5px;background:#e2e8f0;pointer-events:none;`;
+          t.appendChild(gl);
+        }
+      }
+      return t;
+    };
+
+    // Build a unit group = actual row (top) + plan row (bottom)
+    const makeBarGroup = (data, col, status, phaseIdx, unitType) => {
+      const BH = 7;   // bar height px
+      const GAP = 1;  // gap between actual and plan rows
+
+      const grp = document.createElement('div');
+      grp.className = 'bar-group';
+      grp.dataset.phase = phaseIdx;
+      grp.dataset.unit  = unitType;
+      grp.style.cssText = `display:flex;flex-direction:column;gap:${GAP}px;margin-bottom:3px;width:100%;`;
+
+      // ── Row 1: 實際 ──
+      const actualTrack = makeTrack(BH, false);
+      actualTrack.className = 'bar-actual';
+      if ((status==='done'||status==='inprogress') && data.actualStart) {
+        const endW = (status==='done' && data.actualEnd) ? data.actualEnd : CURRENT_WEEK;
+        const stripe = status==='inprogress';
+        const ab = document.createElement('div');
+        ab.style.cssText = `position:absolute;top:0;height:${BH}px;
+          left:${pct(data.actualStart)};width:${pctW(endW-data.actualStart+1)};
+          background:${col.bar};border-radius:2px;
+          ${stripe?'background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(255,255,255,.4) 3px,rgba(255,255,255,.4) 6px);':''}`;
+        ab.title = stripe
+          ? `實際起日：第${data.actualStart}週，進行中`
+          : `實際：第${data.actualStart}~${data.actualEnd}週`;
+        actualTrack.appendChild(ab);
+        // red deadline marker on actual row
+        if (data.delayWeeks && data.delayWeeks !== 0) {
+          const dm = document.createElement('div');
+          dm.style.cssText = `position:absolute;top:0;bottom:0;left:${pct(data.end)};width:2px;background:#ef4444;border-radius:1px;`;
+          dm.title = `預估完工：第${data.end}週`;
+          actualTrack.appendChild(dm);
+        }
+      }
+      grp.appendChild(actualTrack);
+
+      // ── Row 2: 預估 ──
+      const planTrack = makeTrack(BH, true); // grid lines here
+      planTrack.className = 'bar-plan-row';
+      const pb = document.createElement('div');
+      pb.style.cssText = `position:absolute;top:0;height:${BH}px;
+        left:${pct(data.start)};width:${pctW(data.end-data.start+1)};
+        background:${col.bar};opacity:.28;border-radius:2px;`;
+      pb.title = `預估：第${data.start}~${data.end}週（共${data.end-data.start+1}週）`;
+      planTrack.appendChild(pb);
+      grp.appendChild(planTrack);
+
+      return grp;
+    };
+
+    if(phase.k) bc.appendChild(makeBarGroup(phase.k, GREEN, phase.status, idx, 'k'));
+    if(phase.d) bc.appendChild(makeBarGroup(phase.d, BLUE,  phase.status, idx, 'd'));
+    pw.appendChild(bc);
+
+    pw.addEventListener('click', ()=>{
+      const ex=body.querySelector('.inline-detail-row');
+      if(activeIdx===idx){ex?.remove();activeIdx=null;setTodayLineVisible(true);return;}
+      ex?.remove(); activeIdx=idx; setTodayLineVisible(false);
+      const{borderCol,html}=buildDetailHTML(phase);
+      const dr=document.createElement('div');
+      dr.className='inline-detail-row';
+      dr.innerHTML=`<div class="inline-detail-spacer"></div>
+        <div class="inline-detail-content" style="border-left-color:${borderCol}">${html}</div>`;
+      pw.insertAdjacentElement('afterend',dr);
+    });
+    body.appendChild(pw);
+  });
+
+  // today line
+  const ov=document.createElement('div');
+  ov.style.cssText='position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;';
+  const tl=document.createElement('div'); tl.id='today-line';
+  tl.innerHTML=`<div id="today-label">▼ 今日 W${CURRENT_WEEK}<br>2026-04-17</div>`;
+  ov.appendChild(tl); body.appendChild(ov); container.appendChild(body);
+
+  requestAnimationFrame(()=>{
+    const bw=body.offsetWidth-180;
+    tl.style.left=(180+CURRENT_WEEK/MAX_WEEKS*bw)+'px';
+  });
+}
+buildChart();
+</script>
+</body>
+</html>
