@@ -19,23 +19,19 @@
       border-radius: 5px; padding: 3px 10px;
       display: inline-block; margin-bottom: 8px;
     }
-    /* legend */
     .legend { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; align-items:center; }
     .legend-item { display:flex; align-items:center; gap:5px; font-size:11px; color:#475569; }
     .legend-line  { width:2px; height:14px; background:#f59e0b; border-radius:1px; }
     .legend-delay-line { width:2px; height:14px; background:#ef4444; border-radius:1px; }
     .legend-sep   { width:1px; height:14px; background:#e2e8f0; margin:0 4px; }
     .hint { font-size:11px; color:#0f172a; font-weight:700; text-decoration:underline; }
-    /* badges */
     .delay-badge { font-size:9px; background:#fee2e2; color:#b91c1c; padding:1px 5px; border-radius:3px; font-weight:700; }
     .ahead-badge { font-size:9px; background:#d1fae5; color:#065f46; padding:1px 5px; border-radius:3px; font-weight:700; }
-    /* status cards */
     .status-bar  { display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
     .status-card { background:white; border:1px solid #e2e8f0; border-radius:7px; padding:6px 12px; min-width:110px; flex:1; }
     .status-card-label { font-size:10px; color:#64748b; margin-bottom:2px; }
     .status-card-val   { font-size:14px; font-weight:700; }
     .status-card-sub   { font-size:10px; color:#94a3b8; margin-top:1px; }
-    /* chart */
     #gc-chart { position:relative; width:100%; }
     .header-row {
       display:flex;
@@ -60,7 +56,6 @@
       border-radius:4px; margin-bottom:2px; transition:background 0.12s;
     }
     .phase-wrapper:hover { background:#f1f5f9; }
-    /* label col — compact */
     .label-col {
       width:180px; flex-shrink:0;
       padding:3px 8px 3px 0;
@@ -73,9 +68,7 @@
     .dur-k { font-size:10px; color:#166534; font-weight:600; }
     .dur-d { font-size:10px; color:#1e40af; font-weight:600; }
     .est-w { font-size:9px; color:#94a3b8; }
-    /* bars */
     .bars-col { flex:1; display:flex; flex-direction:column; gap:2px; padding:3px 0; }
-    /* today line */
     #today-line {
       position:absolute; top:0; bottom:0; width:2px;
       background:#f59e0b; border-radius:1px; pointer-events:none; z-index:10;
@@ -85,7 +78,6 @@
       font-size:10px; font-weight:700; color:#f59e0b;
       white-space:nowrap; background:#f8fafc; padding:0 2px;
     }
-    /* detail panel */
     .inline-detail-row { display:flex; margin-bottom:8px; }
     .inline-detail-spacer { width:180px; flex-shrink:0; }
     .inline-detail-content {
@@ -115,13 +107,11 @@
     .detail-list { list-style:none; padding:0; margin:0; font-size:13px; color:#334155; }
     .detail-list li { margin:4px 0; line-height:1.5; }
     .docs-row { margin-top:12px; padding-top:12px; border-top:1px dashed #cbd5e1; }
-    /* summary */
     .summary-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
     .summary-card { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:10px 14px; }
     .summary-label { font-size:11px; color:#64748b; margin-bottom:3px; }
     .summary-value { font-size:15px; font-weight:600; }
     .summary-sub   { font-size:11px; color:#94a3b8; }
-    /* filter buttons */
     .filter-bar { display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap; align-items:center; }
     .filter-btn {
       font-size:11px; font-weight:600; padding:4px 12px;
@@ -130,7 +120,6 @@
     }
     .filter-btn:hover { border-color:#94a3b8; color:#1e293b; }
     .filter-btn.active { background:#0f172a; color:white; border-color:#0f172a; }
-    /* delay popup */
     .delay-popup {
       display:none; position:fixed; inset:0; z-index:100;
       background:rgba(0,0,0,.4); align-items:center; justify-content:center;
@@ -157,7 +146,7 @@
 
 <h1>新北市托嬰中心／幼兒園立案完整流程甘特圖</h1>
 <p class="subtitle">主管機關：教育局（幼兒園）/ 社會局（托嬰中心）｜含場地裝潢時程</p>
-<div class="update-info">📋 依 蒙特梭利專案計畫表（怡慧版本）更新 ｜ 資料截止：2026-04-17</div>
+<div class="update-info">📋 依 蒙特梭利專案計畫表（怡慧版本）更新 ｜ 資料截止：2026-04-21</div>
 
 <div class="status-bar">
   <div class="status-card" style="border-left:3px solid #f59e0b">
@@ -182,8 +171,8 @@
   </div>
   <div class="status-card" style="border-left:3px solid #7c3aed">
     <div class="status-card-label">📌 即將進行</div>
-    <div class="status-card-val" style="color:#7c3aed">4/20–4/21</div>
-    <div class="status-card-sub">教育局圖面討論 → 實地場勘</div>
+    <div class="status-card-val" style="color:#7c3aed">採購發包</div>
+    <div class="status-card-sub">蔡雲明經理負責遴選發包</div>
   </div>
 </div>
 
@@ -219,7 +208,7 @@
       <div class="delay-dot" style="background:#6b7280"></div>
       <div>
         <div class="delay-item-title">整體時程影響</div>
-        <div class="delay-item-desc">因前段設立確認延遲約 12 週，後續室內裝修、施工、立案等各階段預計同步順延，建議評估是否調整整體時程目標。</div>
+        <div class="delay-item-desc">因前段設立確認延遲約 12 週，後續採購發包、室內裝修、施工、立案等各階段預計同步順延，建議評估是否調整整體時程目標。</div>
       </div>
     </div>
   </div>
@@ -281,7 +270,7 @@
 const MAX_WEEKS  = 70;
 const MONTHS     = Math.ceil(MAX_WEEKS / 4);
 const BASE_DATE  = new Date('2025-12-24');
-const TODAY      = new Date('2026-04-17');
+const TODAY      = new Date('2026-04-21');
 const CURRENT_WEEK = Math.round((TODAY - BASE_DATE)/(7*24*3600*1000)) + 1;
 
 const MONTH_LABELS = [];
@@ -291,8 +280,9 @@ for (let i = 0; i < MONTHS; i++) {
   _md.setMonth(_md.getMonth()+1);
 }
 
-const GREEN = { bar:'#16a34a', light:'#dcfce7', text:'#166534' };
-const BLUE  = { bar:'#2563eb', light:'#dbeafe', text:'#1e40af' };
+const GREEN  = { bar:'#16a34a', light:'#dcfce7', text:'#166534' };
+const BLUE   = { bar:'#2563eb', light:'#dbeafe', text:'#1e40af' };
+
 
 function dateToWeek(s) {
   if (!s) return null;
@@ -302,6 +292,7 @@ function pct(w)  { return ((w-1)/MAX_WEEKS*100).toFixed(3)+'%'; }
 function pctW(w) { return (w/MAX_WEEKS*100).toFixed(3)+'%'; }
 
 const phases = [
+  // ── p1 場地評估與選址 ──
   {
     id:'p1', phaseName:'場地評估與選址', status:'done',
     diffText:'蕭建築師合約 03-19 完成用印',
@@ -320,6 +311,7 @@ const phases = [
         tasks:['確認設立地點（托嬰、幼兒園）','辦理變更使照及立案 (蕭建築師/筱凡)','✅ 設立確認實際起日：2026-03-17（較計畫延遲約 12 週）','評估建物面積與收托人數','簽訂租約（5年以上公證）'],
         docs:['土地使用分區證明','建築物登記謄本','地籍圖謄本','房屋租賃契約或所有權狀'] }
   },
+  // ── p2 設計規劃 ──
   {
     id:'p2', phaseName:'設計規劃', status:'inprogress',
     diffText:'4月底前完成圖面確認',
@@ -336,6 +328,33 @@ const phases = [
         tasks:['委託建築師/室內設計師規劃','消防設備配置規劃（消防技師）','空間配置設計（活動室、寢室、廚房、廁所）','每名兒童室內活動面積需達2㎡以上','Max內裝修設計師：平面規劃、室裝施工規劃','繪製擬變更平面圖說'],
         docs:['擬變更平面圖說','消防安全設備平面圖說','空間配置說明書'] }
   },
+  // ── p4b 採購發包流程 ──
+  {
+    id:'p4b', phaseName:'採購發包流程', status:'inprogress',
+    diffText:'負責人：蔡雲明經理｜4/13 已通知蔡經理提報報價與工程合約',
+    actualDates:{ k:{ startStr:'2026-03-04', endStr:'（進行中）', startW:dateToWeek('2026-03-04'), endW:null }, d:{ startStr:'2026-03-04', endStr:'（進行中）', startW:dateToWeek('2026-03-04'), endW:null } },
+    k:{ duration:'進行中', start:20, end:23, actualStart:dateToWeek('2026-03-04'), actualEnd:null, delayWeeks:null,
+        tasks:[
+          '使變、室裝建築師技師簽證等採購作業',
+          '室裝建築、施工廠商遴選發包',
+          '室裝建築、消防廠商遴選發包',
+          '設計施工廠商遴選（建築師/消防+防綜/室裝施工+弱電）',
+          '承攬合約製作（蔡雲明經理）',
+          '採購教具、設備等（給付開辦設施設備費）',
+        ],
+        docs:['採購發包清單','廠商報價單','承攬合約書','採購核准文件'] },
+    d:{ duration:'進行中', start:18, end:21, actualStart:dateToWeek('2026-03-04'), actualEnd:null, delayWeeks:null,
+        tasks:[
+          '使變、室裝建築師技師簽證等採購作業',
+          '室裝建築、施工廠商遴選發包',
+          '室裝建築、消防廠商遴選發包',
+          '設計施工廠商遴選（建築師/消防+防綜/室裝施工+弱電）',
+          '承攬合約製作（蔡雲明經理）',
+          '採購教具、設備等（給付開辦設施設備費）',
+        ],
+        docs:['採購發包清單','廠商報價單','承攬合約書','採購核准文件'] }
+  },
+  // ── p3 建築物使用執照變更 ──
   {
     id:'p3', phaseName:'建築物使用執照變更', status:'inprogress',
     diffText:'4/20 教育局圖面討論，4/21 實地場勘',
@@ -352,6 +371,7 @@ const phases = [
         tasks:['使變、室裝申請竣工勘驗（蕭建築師）','消防/黃結構技師：消防+防綜/結構外審','行政送審：辦理使用變更（含室裝申請）','黃結構技師使變&室裝申請送件（送件時付第二期款 20,000）','審查費：55,000','補正改善（如需）','取得變更使用執照核准'],
         docs:['建築物使用執照影本及竣工圖','建物改良測量成果圖','結構檢討報告書（如有主要構造變更）'] }
   },
+  // ── p4 室內裝修許可申請 ──
   {
     id:'p4', phaseName:'室內裝修許可申請', status:'pending',
     diffText:'', actualDates:{ k:null, d:null },
@@ -362,69 +382,75 @@ const phases = [
         tasks:['委託室內裝修業者','準備室內裝修申請文件','向建管處申請室內裝修許可','取得室內裝修施工許可證'],
         docs:['室內裝修申請書','室內裝修圖說','室內裝修從業者登記證影本'] }
   },
+  // ── p5 場地裝潢施工（移除 Max）──
   {
-    id:'p5', phaseName:'場地裝潢施工（Max）', status:'pending',
-    diffText:'4/13 已通知Max、蔡雲明經理報價與工程合約',
+    id:'p5', phaseName:'場地裝潢施工', status:'pending',
+    diffText:'施工廠商待發包確認後執行，營建郭協理負責施工查核',
     actualDates:{ k:null, d:null },
-    k:{ duration:'16-24週（預計）', start:23, end:46, actualStart:null, actualEnd:null, delayWeeks:null,
-        tasks:['設計施工廠商遴選發包（蔡雲明經理）—4/13 已通知Max','承攬合約製作（蔡雲明經理）','拆除工程、廢棄物清運','水電配管、管線預埋','泥作工程、隔間牆施作','地板施工、天花板工程','廚房設備、盥洗室設備安裝','消防設備安裝','空調設備、油漆粉刷','戶外遊戲設施、清潔收尾','施工及查核（營建郭協理）'],
+    k:{ duration:'16-24週（預計）', start:24, end:47, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['設計施工廠商遴選發包（蔡雲明經理）','承攬合約製作（蔡雲明經理）','拆除工程、廢棄物清運','水電配管、管線預埋','泥作工程、隔間牆施作','地板施工、天花板工程','廚房設備、盥洗室設備安裝','消防設備安裝','空調設備、油漆粉刷','戶外遊戲設施、清潔收尾','施工及查核（營建郭協理）'],
         docs:[] },
-    d:{ duration:'16-24週（預計）', start:21, end:44, actualStart:null, actualEnd:null, delayWeeks:null,
-        tasks:['設計施工廠商遴選發包（蔡雲明經理）—4/13 已通知Max','承攬合約製作（蔡雲明經理）','拆除工程、廢棄物清運','水電配管、管線預埋','泥作工程、隔間牆施作','地板施工、天花板工程','廚房/廁所設備安裝、木作工程','消防設備安裝、空調設備安裝','油漆粉刷、監視錄影設備安裝','清潔整理、設備測試、缺失改善','完工點交（營建郭協理）'],
+    d:{ duration:'16-24週（預計）', start:22, end:45, actualStart:null, actualEnd:null, delayWeeks:null,
+        tasks:['設計施工廠商遴選發包（蔡雲明經理）','承攬合約製作（蔡雲明經理）','拆除工程、廢棄物清運','水電配管、管線預埋','泥作工程、隔間牆施作','地板施工、天花板工程','廚房/廁所設備安裝、木作工程','消防設備安裝、空調設備安裝','油漆粉刷、監視錄影設備安裝','清潔整理、設備測試、缺失改善','完工點交（營建郭協理）'],
         docs:[] }
   },
+  // ── p6k 消防查驗（幼兒園專屬）──
   {
     id:'p6k', phaseName:'消防查驗', status:'pending',
     diffText:'', actualDates:{ k:null, d:null },
-    k:{ duration:'2-3週', start:47, end:49, actualStart:null, actualEnd:null, delayWeeks:null,
+    k:{ duration:'2-3週', start:48, end:50, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['向消防局申請消防安全設備查驗','消防局現場查驗','缺失改善（如需）','取得消防安全機關查驗合格證明'],
         docs:['消防安全設備圖說','消防安全設備查驗合格證明'] },
     d:null
   },
+  // ── p7 裝修竣工查驗 ──
   {
     id:'p7', phaseName:'裝修竣工查驗', status:'pending',
     diffText:'', actualDates:{ k:null, d:null },
-    k:{ duration:'2-3週', start:50, end:52, actualStart:null, actualEnd:null, delayWeeks:null,
+    k:{ duration:'2-3週', start:51, end:53, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['申請室內裝修竣工查驗','建管處現場查驗','缺失改善複查','取得室內裝修合格證明','辦理建築物公共安全檢查申報'],
         docs:['室內裝修合格證明','建築物公共安全檢查申報結果通知書'] },
-    d:{ duration:'3-4週', start:45, end:48, actualStart:null, actualEnd:null, delayWeeks:null,
+    d:{ duration:'3-4週', start:46, end:49, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['申請室內裝修竣工查驗','消防安全設備檢測','建管處現場查驗','缺失改善複查','取得室內裝修合格證明','辦理建築物公共安全檢查申報'],
         docs:['室內裝修合格證明','消防安全設備檢修申報','建築物公共安全檢查申報結果通知書'] }
   },
+  // ── p8 準備立案文件 ──
   {
     id:'p8', phaseName:'準備立案文件', status:'pending',
     diffText:'', actualDates:{ k:null, d:null },
-    k:{ duration:'3-4週', start:53, end:56, actualStart:null, actualEnd:null, delayWeeks:null,
+    k:{ duration:'3-4週', start:54, end:57, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['準備設園計畫書','負責人身分證及三個月內刑事紀錄','辦理履行營運擔保','採購教學設備與教具（蔡雲明經理/Amber）','聘任園長及教保服務人員（Elim/Amber招募）','準備設施及設備檢核表','所系統建置（Amber、Joyce）','招牌製作（Rhoda）'],
         docs:['設園計畫書','負責人身分證影本','三個月內警察刑事紀錄','建築物使用執照影本','消防安全設備查驗合格證明','土地及建築物使用權利證明','設施及設備檢核表','履行營運擔保證明影本'] },
-    d:{ duration:'2-3週', start:49, end:51, actualStart:null, actualEnd:null, delayWeeks:null,
+    d:{ duration:'2-3週', start:50, end:52, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['準備立案申請書','準備業務計畫書','準備人員資格文件','購買公共意外責任保險','辦理履行營運擔保定存','準備監視錄影錄音設備配置圖','採購設備與教具'],
         docs:['托嬰中心新設立申請書','業務計畫書','履行營運擔保證明（定存）','公共意外責任保險單','火災保險單','工作人員名冊及資格文件','年度預算書','收退費基準及應行注意事項','托育契約範本','監視錄影錄音設備配置圖'] }
   },
+  // ── p9 主管機關審核會勘 ──
   {
     id:'p9', phaseName:'主管機關審核會勘', status:'pending',
     diffText:'', actualDates:{ k:null, d:null },
-    k:{ duration:'6-8週', start:57, end:64, actualStart:null, actualEnd:null, delayWeeks:null,
+    k:{ duration:'6-8週', start:58, end:65, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['向新北市教育局幼兒教育科提出申請','教育局書面審查（60天內）','現場會勘（建管、消防、衛生等單位）','補正改善（如需）','複查確認'],
         docs:[] },
-    d:{ duration:'4-5週', start:52, end:56, actualStart:null, actualEnd:null, delayWeeks:null,
+    d:{ duration:'4-5週', start:53, end:57, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['向新北市社會局兒童托育科提出申請','社會局書面初核（30天內）','發文會同衛生局','實地訪視會勘','補正改善（如需）'],
         docs:[] }
   },
+  // ── p10 核准立案 ──
   {
     id:'p10', phaseName:'核准立案', status:'pending',
     diffText:'', actualDates:{ k:null, d:null },
-    k:{ duration:'1-2週', start:65, end:66, actualStart:null, actualEnd:null, delayWeeks:null,
+    k:{ duration:'1-2週', start:66, end:67, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['審查通過','發給設立許可證書','許可證書懸掛於園內明顯處','正式營運準備、招生（行銷企劃：林家慧）'],
         docs:['設立許可證書'] },
-    d:{ duration:'1-2週', start:57, end:58, actualStart:null, actualEnd:null, delayWeeks:null,
+    d:{ duration:'1-2週', start:58, end:59, actualStart:null, actualEnd:null, delayWeeks:null,
         tasks:['審查通過','發予核准公文','發予立案證書','正式營運準備'],
         docs:['立案證書','設立許可函'] }
   },
 ];
 
 let activeIdx = null;
-let currentFilter = 'all'; // 'all' | 'actual' | 'done' | 'plan'
+let currentFilter = 'all';
 
 function setFilter(f, btn) {
   currentFilter = f;
@@ -434,25 +460,20 @@ function setFilter(f, btn) {
 }
 
 function renderBars() {
-  // Re-render all bar groups based on currentFilter
   document.querySelectorAll('.bar-group[data-phase]').forEach(grp => {
     const phaseIdx = parseInt(grp.dataset.phase);
-    const unitType = grp.dataset.unit; // 'k' or 'd'
+    const unitType = grp.dataset.unit;
     const phase = phases[phaseIdx];
     const data  = unitType === 'k' ? phase.k : phase.d;
-    const col   = unitType === 'k' ? GREEN : BLUE;
     if (!data) return;
-
     const actualEl = grp.querySelector('.bar-actual');
     const planEl   = grp.querySelector('.bar-plan-row');
-
     if (currentFilter === 'all') {
       if (actualEl) actualEl.style.display = '';
       if (planEl)   planEl.style.display   = '';
     } else if (currentFilter === 'actual' || currentFilter === 'done') {
       if (actualEl) actualEl.style.display = '';
       if (planEl)   planEl.style.display   = 'none';
-      // 'done' hides inprogress bars
       if (currentFilter === 'done' && phase.status !== 'done') {
         if (actualEl) actualEl.style.display = 'none';
       }
@@ -462,15 +483,18 @@ function renderBars() {
     }
   });
 }
+
 function setTodayLineVisible(v) {
   const t = document.getElementById('today-line'); if(t) t.style.opacity=v?'1':'0';
 }
+
 function formatDiff(w) {
   if(w==null) return '';
   if(w>0) return `<span class="date-diff-pos">延遲 +${w} 週</span>`;
   if(w<0) return `<span class="date-diff-neg">提前 ${Math.abs(w)} 週</span>`;
   return `<span class="date-diff-zero">準時</span>`;
 }
+
 function alignLists(lK,lD,kwMap) {
   const tK=[...lK],tD=[...lD],al=[];
   kwMap.forEach(m=>{
@@ -495,7 +519,9 @@ function buildDetailHTML(phase) {
     {k:'消防設備安裝',d:'消防設備安裝'},{k:'油漆粉刷',d:'油漆粉刷'},{k:'清潔',d:'清潔'},
     {k:'申請室內裝修竣工查驗',d:'申請室內裝修竣工查驗'},{k:'取得室內裝修合格證明',d:'取得室內裝修合格證明'},
     {k:'公共安全檢查申報',d:'公共安全檢查申報'},{k:'履行營運擔保',d:'履行營運擔保'},
-    {k:'採購',d:'採購'},{k:'審查通過',d:'審查通過'},{k:'正式營運',d:'正式營運'},{k:'補正改善',d:'補正改善'}
+    {k:'採購',d:'採購'},{k:'審查通過',d:'審查通過'},{k:'正式營運',d:'正式營運'},{k:'補正改善',d:'補正改善'},
+    {k:'使變、室裝建築師',d:'使變、室裝建築師'},{k:'室裝建築、施工',d:'室裝建築、施工'},
+    {k:'承攬合約',d:'承攬合約'},{k:'設計施工廠商遴選',d:'設計施工廠商遴選'}
   ];
   const docKW=[
     {k:'土地使用分區',d:'土地使用分區'},{k:'建築物登記謄本',d:'建築物登記謄本'},
@@ -506,7 +532,9 @@ function buildDetailHTML(phase) {
     {k:'公共安全檢查申報',d:'公共安全檢查申報'},{k:'計畫書',d:'計畫書'},
     {k:'負責人身分證',d:'負責人身分證'},{k:'刑事紀錄',d:'刑事紀錄'},
     {k:'履行營運擔保',d:'履行營運擔保'},{k:'資格文件',d:'資格文件'},
-    {k:'立案證書',d:'立案證書'},{k:'設立許可',d:'設立許可'}
+    {k:'立案證書',d:'立案證書'},{k:'設立許可',d:'設立許可'},
+    {k:'採購發包清單',d:'採購發包清單'},{k:'廠商報價單',d:'廠商報價單'},
+    {k:'承攬合約書',d:'承攬合約書'}
   ];
   const aT=alignLists(hasK?phase.k.tasks:[],hasD?phase.d.tasks:[],taskKW);
   const aD=alignLists(hasK?phase.k.docs :[],hasD?phase.d.docs :[],docKW);
@@ -531,21 +559,24 @@ function buildDetailHTML(phase) {
     <div class="actual-dates-title" style="color:#92400e">📌 補充說明</div>
     <div style="font-size:12px;color:#78350f">${phase.diffText}</div></div>`;
 
+  const kCol = GREEN;
+  const dCol = BLUE;
+
   let tbl=`<div class="detail-table"><div class="detail-row">`;
   if(hasK) tbl+=`<div class="detail-cell">
-    <div class="detail-unit-label" style="background:${GREEN.light};color:${GREEN.text};">🏫 幼兒園（${phase.k.duration}）</div>
+    <div class="detail-unit-label" style="background:${kCol.light};color:${kCol.text};">🏫 幼兒園（${phase.k.duration}）</div>
     <div class="detail-sub-title">工作項目</div>
     <ul class="detail-list">${aT.map(p=>p.k?`<li>✓ ${p.k}</li>`:'').join('')}</ul></div>`;
   if(hasD) tbl+=`<div class="detail-cell">
-    <div class="detail-unit-label" style="background:${BLUE.light};color:${BLUE.text};">👶 托嬰中心（${phase.d.duration}）</div>
+    <div class="detail-unit-label" style="background:${dCol.light};color:${dCol.text};">👶 托嬰中心（${phase.d.duration}）</div>
     <div class="detail-sub-title">工作項目</div>
     <ul class="detail-list">${aT.map(p=>p.d?`<li>✓ ${p.d}</li>`:'').join('')}</ul></div>`;
   tbl+=`</div>`;
   if((hasK&&phase.k.docs.length)||(hasD&&phase.d?.docs.length)){
     tbl+=`<div class="detail-row docs-row">`;
-    if(hasK) tbl+=`<div class="detail-cell"><div class="detail-sub-title" style="color:${GREEN.text}">📄 幼兒園應備文件</div>
+    if(hasK) tbl+=`<div class="detail-cell"><div class="detail-sub-title" style="color:${kCol.text}">📄 幼兒園應備文件</div>
       <ul class="detail-list">${aD.map(p=>p.k?`<li>• ${p.k}</li>`:'').join('')}</ul></div>`;
-    if(hasD) tbl+=`<div class="detail-cell"><div class="detail-sub-title" style="color:${BLUE.text}">📄 托嬰中心應備文件</div>
+    if(hasD) tbl+=`<div class="detail-cell"><div class="detail-sub-title" style="color:${dCol.text}">📄 托嬰中心應備文件</div>
       <ul class="detail-list">${aD.map(p=>p.d?`<li>• ${p.d}</li>`:'').join('')}</ul></div>`;
     tbl+=`</div>`;
   }
@@ -560,7 +591,6 @@ function buildDetailHTML(phase) {
 function buildChart() {
   const container = document.getElementById('gc-chart');
 
-  // sticky month header
   const hRow = document.createElement('div');
   hRow.className = 'header-row';
   hRow.innerHTML = `<div class="label-header">工作階段</div><div class="months-area" id="months-area"></div>`;
@@ -582,12 +612,12 @@ function buildChart() {
     const pw = document.createElement('div');
     pw.className = 'phase-wrapper';
 
-    // label
     const kL = isDone?'完成':(isIP?'進行中':(phase.k?.duration||''));
     const dL = isDone?'完成':(isIP?'進行中':(phase.d?.duration||''));
     let dbg='';
     if(phase.k?.delayWeeks>0)  dbg=`<span class="delay-badge">+${phase.k.delayWeeks}w</span>`;
     if(phase.k?.delayWeeks<0)  dbg=`<span class="ahead-badge">${phase.k.delayWeeks}w</span>`;
+
 
     const lc = document.createElement('div');
     lc.className='label-col';
@@ -606,11 +636,9 @@ function buildChart() {
       </div>`;
     pw.appendChild(lc);
 
-    // bars — TWO separate rows per unit: actual (top) + plan (bottom), never overlapping
     const bc = document.createElement('div');
     bc.className = 'bars-col';
 
-    // Build one track row (fixed height, grid lines optional)
     const makeTrack = (H, withGrid) => {
       const t = document.createElement('div');
       t.style.cssText = `position:relative;width:100%;height:${H}px;flex-shrink:0;`;
@@ -624,18 +652,15 @@ function buildChart() {
       return t;
     };
 
-    // Build a unit group = actual row (top) + plan row (bottom)
     const makeBarGroup = (data, col, status, phaseIdx, unitType) => {
-      const BH = 7;   // bar height px
-      const GAP = 1;  // gap between actual and plan rows
-
+      const BH = 7;
+      const GAP = 1;
       const grp = document.createElement('div');
       grp.className = 'bar-group';
       grp.dataset.phase = phaseIdx;
       grp.dataset.unit  = unitType;
       grp.style.cssText = `display:flex;flex-direction:column;gap:${GAP}px;margin-bottom:3px;width:100%;`;
 
-      // ── Row 1: 實際 ──
       const actualTrack = makeTrack(BH, false);
       actualTrack.className = 'bar-actual';
       if ((status==='done'||status==='inprogress') && data.actualStart) {
@@ -650,7 +675,6 @@ function buildChart() {
           ? `實際起日：第${data.actualStart}週，進行中`
           : `實際：第${data.actualStart}~${data.actualEnd}週`;
         actualTrack.appendChild(ab);
-        // red deadline marker on actual row
         if (data.delayWeeks && data.delayWeeks !== 0) {
           const dm = document.createElement('div');
           dm.style.cssText = `position:absolute;top:0;bottom:0;left:${pct(data.end)};width:2px;background:#ef4444;border-radius:1px;`;
@@ -660,8 +684,7 @@ function buildChart() {
       }
       grp.appendChild(actualTrack);
 
-      // ── Row 2: 預估 ──
-      const planTrack = makeTrack(BH, true); // grid lines here
+      const planTrack = makeTrack(BH, true);
       planTrack.className = 'bar-plan-row';
       const pb = document.createElement('div');
       pb.style.cssText = `position:absolute;top:0;height:${BH}px;
@@ -674,8 +697,11 @@ function buildChart() {
       return grp;
     };
 
-    if(phase.k) bc.appendChild(makeBarGroup(phase.k, GREEN, phase.status, idx, 'k'));
-    if(phase.d) bc.appendChild(makeBarGroup(phase.d, BLUE,  phase.status, idx, 'd'));
+    const kBarCol = GREEN;
+    const dBarCol = BLUE;
+
+    if(phase.k) bc.appendChild(makeBarGroup(phase.k, kBarCol, phase.status, idx, 'k'));
+    if(phase.d) bc.appendChild(makeBarGroup(phase.d, dBarCol, phase.status, idx, 'd'));
     pw.appendChild(bc);
 
     pw.addEventListener('click', ()=>{
@@ -692,11 +718,10 @@ function buildChart() {
     body.appendChild(pw);
   });
 
-  // today line
   const ov=document.createElement('div');
   ov.style.cssText='position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;';
   const tl=document.createElement('div'); tl.id='today-line';
-  tl.innerHTML=`<div id="today-label">▼ 今日 W${CURRENT_WEEK}<br>2026-04-17</div>`;
+  tl.innerHTML=`<div id="today-label">▼ 今日 W${CURRENT_WEEK}<br>2026-04-21</div>`;
   ov.appendChild(tl); body.appendChild(ov); container.appendChild(body);
 
   requestAnimationFrame(()=>{
