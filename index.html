@@ -162,8 +162,7 @@
 
 <!-- 週數 Popup -->
 <div id="weekPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="delay-popup-box" style="max-width:600px;padding:0;overflow:hidden;">
-    <!-- Header -->
+  <div class="delay-popup-box" style="max-width:520px;padding:0;overflow:hidden;">
     <div style="background:#0f172a;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
       <div>
         <div style="font-size:15px;font-weight:700;letter-spacing:.02em;">專案週數總覽</div>
@@ -171,7 +170,6 @@
       </div>
       <button class="delay-close" style="color:white;" onclick="document.getElementById('weekPopup').classList.remove('open')">✕</button>
     </div>
-    <!-- Summary bar -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #e2e8f0;">
       <div style="padding:14px 16px;text-align:center;border-right:1px solid #e2e8f0;">
         <div style="font-size:10px;color:#94a3b8;margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase;">今日週數</div>
@@ -189,14 +187,35 @@
         <div style="font-size:11px;color:#64748b;margin-top:3px;">約 17 個月</div>
       </div>
     </div>
-    <!-- Week selector -->
-    <div style="padding:12px 20px;border-bottom:1px solid #e2e8f0;background:#fafafa;">
-      <div style="font-size:11px;font-weight:600;color:#374151;margin-bottom:8px;">選擇週次查看當週任務</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="weekBtnRow"></div>
-    </div>
-    <!-- Week tasks -->
-    <div style="max-height:340px;overflow-y:auto;" id="weekTaskPanel">
-      <div style="padding:20px;text-align:center;color:#94a3b8;font-size:12px;">請點選上方週次查看當週任務</div>
+    <div style="padding:16px 20px;">
+      <div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em;">目前進度</div>
+      <div style="display:flex;flex-direction:column;gap:0;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #f1f5f9;">
+          <div style="padding:10px 14px;background:#f8fafc;font-size:11px;font-weight:700;color:#64748b;border-right:1px solid #f1f5f9;">已完成</div>
+          <div style="padding:10px 14px;">
+            <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:2px;">場地評估與選址</div>
+            <div style="font-size:11px;color:#64748b;">W1–W13 完成・蕭建築師合約 03/19 用印・第一期款 189,000</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #f1f5f9;">
+          <div style="padding:10px 14px;background:#0f172a;font-size:11px;font-weight:700;color:white;border-right:1px solid #334155;">進行中</div>
+          <div style="padding:10px 14px;background:#fafafa;">
+            <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">設計規劃</div>
+            <div style="font-size:11px;color:#64748b;margin-bottom:6px;">W1 起・MAX 圖說・蕭建築師製作圖說送件進行中</div>
+            <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">建築物使用執照變更</div>
+            <div style="font-size:11px;color:#64748b;margin-bottom:6px;">W8 起・4/20 教育局圖面討論完成・4/21 實地場勘完成・黃結構技師合約 04/14 啟動</div>
+            <div style="font-size:12px;font-weight:700;color:#0f172a;margin-bottom:4px;">採購發包流程</div>
+            <div style="font-size:11px;color:#64748b;">W17 起・蔡雲明經理負責・廠商遴選發包進行中</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:80px 1fr;">
+          <div style="padding:10px 14px;background:#f8fafc;font-size:11px;font-weight:700;color:#94a3b8;border-right:1px solid #f1f5f9;">待開始</div>
+          <div style="padding:10px 14px;">
+            <div style="font-size:12px;font-weight:700;color:#94a3b8;margin-bottom:2px;">室內裝修許可申請</div>
+            <div style="font-size:11px;color:#cbd5e1;">預估 W19（04/29）起・約 2–4 週</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -768,178 +787,6 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&dbOpen) toggleDbPo
   </div>
 </div>
 
-<script>
-// ── 週次任務資料 ─────────────────────────────────────────────────
-// 依 phases 資料，每個階段有 start/end week，列出當週應執行的任務
-const WEEK_TASKS = (function(){
-  const map = {}; // week → [{phase, tasks}]
 
-  // 定義各週的具體任務（依 Excel 實際資料）
-  const weekData = {
-    1:  { phase:'設計規劃', person:'MAX / Amber / 筱凡',      tasks:['啟動蒙特梭利專案・訂定預算與團隊簡介','MAX 開始規劃托嬰幼兒園圖說','訂定工作計畫與時程'] },
-    2:  { phase:'設計規劃', person:'MAX / 筱凡',              tasks:['繼續規劃托嬰幼兒園圖說','討論空間配置需求'] },
-    3:  { phase:'設計規劃', person:'MAX / 筱凡',              tasks:['持續規劃圖說','確認托嬰及幼兒園空間用途'] },
-    4:  { phase:'設計規劃', person:'MAX / 筱凡',              tasks:['繼續推進空間規劃','確認格局方向'] },
-    5:  { phase:'設計規劃', person:'MAX / 筱凡',              tasks:['圖說規劃進行中','確認初步設計方向'] },
-    6:  { phase:'設計規劃', person:'MAX / 筱凡',              tasks:['圖說規劃持續進行','討論材料與色系'] },
-    7:  { phase:'設計規劃', person:'MAX / 筱凡',              tasks:['確認場地風格・材料・品牌 LOGO','繼續圖說規劃'] },
-    8:  { phase:'設計規劃 + 使照變更', person:'MAX / 蕭建築師 / 筱凡', tasks:['蕭建築師勘查建物現況並評估合規（02/12 起）','MAX 整體規劃報告啟動','確認合規否及報價設計費・送審規費','招募園長・主任老師（02/09 起）'] },
-    9:  { phase:'設計規劃 + 使照變更', person:'MAX / 蕭建築師 / 筱凡', tasks:['蕭建築師繼續評估合規','MAX 整體規劃報告進行中','持續招募師資'] },
-    10: { phase:'設計規劃 + 使照變更', person:'蕭建築師 / MAX / 筱凡', tasks:['確認合規及報價設計費・送審規費（完成截止 03/04）','MAX 空間設計細節討論','辦理裝修材料證明準備'] },
-    11: { phase:'設計規劃 + 使照變更', person:'蕭建築師 / 筱凡',       tasks:['建築師製作（變使、室裝）送件及圖說起始（03/04）','圖說送件準備作業','空間設計討論持續'] },
-    12: { phase:'設計規劃 + 使照變更', person:'蕭建築師 / MAX / 筱凡', tasks:['建築師製作圖說持續進行','MAX 提報設計合約（03/13）','確認品牌 LOGO・色系・造型'] },
-    13: { phase:'場地評估完成 + 使照變更', person:'蕭建築師 / 筱凡',   tasks:['建築師報價立案回覆同意（03/17～03/20）','建築師合約完成用印（03/19～03/20）','第一期款匯出 189,000','托嬰設立確認（03/17）','建築師勘查持續至 04/15'] },
-    14: { phase:'使照變更', person:'蕭建築師 / 筱凡',                  tasks:['建築師辦理變使・室裝許可手續進行中','送件圖說持續'] },
-    15: { phase:'使照變更', person:'蕭建築師 / 筱凡',                  tasks:['建築師勘查建物收尾（04/15）','使照變更送審進行中'] },
-    16: { phase:'使照變更', person:'蕭建築師 / 筱凡',                  tasks:['使照變更書面審核進行中','補正準備（如需）'] },
-    17: { phase:'使照變更 + 採購發包', person:'蕭建築師 / 黃結構技師 / 蔡雲明 / 筱凡', tasks:['結構技師報價單及合約完成（04/14）・頭款 50,000','採購發包啟動（04/13）・蔡雲明通知報價','使變・室裝建築師技師簽證採購作業','廠商遴選：消防・防綜・室裝施工・弱電'] },
-    18: { phase:'使照變更 + 採購發包', person:'蕭建築師 / 心怡 / 蔡雲明 / 筱凡', tasks:['與教育局圖面討論（04/20）','實地場勘（04/21）','室裝建築・施工廠商遴選發包','承攬合約製作進行中'] },
-    19: { phase:'採購發包 + 室內裝修許可', person:'蔡雲明 / 蕭建築師 / 筱凡', tasks:['室裝建築・消防廠商遴選發包持續','委託合格室內裝修業者','準備室內裝修申請文件','向建管處申請室內裝修許可'] },
-    20: { phase:'採購發包 + 室內裝修許可', person:'蔡雲明 / 蕭建築師 / 筱凡', tasks:['施工廠商承攬合約確認','室內裝修許可申請進行中','確立教具・辦公設備採購清單','採購教具・設備等（開辦設施設備費）'] },
-    21: { phase:'室內裝修許可申請', person:'蕭建築師 / 蔡雲明 / 筱凡', tasks:['取得室內裝修施工許可證（目標）','確認施工廠商・簽署承攬合約'] },
-    22: { phase:'室內裝修許可 → 施工準備', person:'蕭建築師 / 蔡雲明 / 筱凡', tasks:['室內裝修許可完成','施工前準備・建材確認','幼兒園：預計 W23 動工'] },
-    23: { phase:'場地裝潢施工', person:'MAX / 營建郭協理 / 筱凡', tasks:['幼兒園動工（預計）','第1-2週：拆除工程・廢棄物清運','托嬰中心：W21 已開工'] },
-  };
-
-  // 填入 W24~W66 施工及後續階段
-  for(let w=24;w<=46;w++){
-    const wk=w-23;
-    let task='場地裝潢施工進行中';
-    if(wk<=2)      task='拆除工程・廢棄物清運';
-    else if(wk<=5) task='水電配管・管線預埋';
-    else if(wk<=10)task='泥作工程・隔間牆施作';
-    else if(wk<=14)task='地板施工・天花板工程';
-    else if(wk<=18)task='廚房設備・盥洗室設備安裝';
-    else if(wk<=20)task='消防設備安裝';
-    else if(wk<=22)task='空調設備・油漆粉刷';
-    else            task='戶外遊戲設施・清潔收尾（幼）';
-    weekData[w] = { phase:'場地裝潢施工', person:'MAX / 營建郭協理',
-      tasks:[`幼 施工第 ${wk} 週：${task}`,'施工過程協調及監工（郭協理）'] };
-  }
-  for(let w=21;w<=44;w++){
-    const wk=w-21+1;
-    if(!weekData[w]) weekData[w]={phase:'場地裝潢施工（托嬰）',person:'MAX / 營建郭協理',tasks:[]};
-    let task2='';
-    if(wk<=2)       task2='拆除工程・廢棄物清運';
-    else if(wk<=4)  task2='水電配管・管線預埋';
-    else if(wk<=8)  task2='泥作工程・隔間牆施作';
-    else if(wk<=12) task2='地板施工・天花板工程';
-    else if(wk<=16) task2='廚房/廁所設備安裝・木作工程';
-    else if(wk<=20) task2='消防設備安裝・空調設備安裝';
-    else if(wk<=22) task2='油漆粉刷・監視錄影設備安裝';
-    else             task2='清潔整理・設備測試・缺失改善';
-    if(weekData[w].tasks) weekData[w].tasks.push(`嬰 施工第 ${wk} 週：${task2}`);
-  }
-
-  // 招募（W8~W37 同步進行）
-  for(let w=8;w<=37;w++){
-    if(!weekData[w]) weekData[w]={phase:'招募與師培（同步進行）',person:'Elim / Amber / Joyce',tasks:[]};
-    weekData[w].tasks.push('招募・師培同步進行（W8～W37）');
-  }
-
-  // 消防查驗 W47-W49（幼）
-  for(let w=47;w<=49;w++) weekData[w]={phase:'消防查驗（幼兒園）',person:'消防局',tasks:['向消防局申請消防安全設備查驗','消防局現場查驗・缺失改善','取得消防安全機關查驗合格證明']};
-  // 竣工查驗 幼 W50-W52, 嬰 W45-W48
-  for(let w=45;w<=48;w++){
-    if(!weekData[w]) weekData[w]={phase:'裝修竣工查驗（托嬰）',person:'建管處 / 蕭建築師',tasks:[]};
-    weekData[w].tasks.push('嬰 申請室內裝修竣工查驗','嬰 消防安全設備檢測・建管處查驗');
-  }
-  for(let w=50;w<=52;w++) weekData[w]={phase:'裝修竣工查驗（幼兒園）',person:'建管處 / 蕭建築師',tasks:['幼 申請室內裝修竣工查驗','建管處現場查驗・缺失改善複查','取得室內裝修合格證明・公共安全申報']};
-  // 立案文件
-  for(let w=49;w<=56;w++){
-    if(!weekData[w]) weekData[w]={phase:'準備立案文件',person:'Amber / Joyce / 乾宏',tasks:[]};
-    weekData[w].tasks.push('準備申請書・計畫書・人員資格文件','辦理履行營運擔保・購買保險','採購教學設備・系統建置（Amber・Joyce）');
-  }
-  // 審核 幼W57-W64 嬰W52-W56
-  for(let w=57;w<=64;w++){
-    if(!weekData[w]) weekData[w]={phase:'教育局審核會勘（幼）',person:'新北市教育局',tasks:[]};
-    weekData[w].tasks.push('幼 教育局書面審查（60天內）','現場會勘・補正改善（如需）');
-  }
-  for(let w=52;w<=56;w++){
-    if(!weekData[w]) weekData[w]={phase:'社會局審核會勘（嬰）',person:'新北市社會局',tasks:[]};
-    weekData[w].tasks.push('嬰 社會局書面初核（30天內）','實地訪視會勘・補正改善（如需）');
-  }
-  // 核准立案 幼W65-W66 嬰W57-W58
-  for(let w=65;w<=66;w++) weekData[w]={phase:'核准立案（幼兒園）',person:'Amber / Joyce / 林家慧',tasks:['審查通過・發給設立許可證書','許可證書懸掛・正式營運準備','招生（行銷企劃：林家慧）']};
-  for(let w=57;w<=58;w++){
-    if(!weekData[w]) weekData[w]={phase:'核准立案（托嬰）',person:'Amber / Joyce',tasks:[]};
-    weekData[w].tasks.push('嬰 審查通過・發予立案證書','正式營運準備');
-  }
-
-  return weekData;
-})();
-
-// ── 初始化週次按鈕 ────────────────────────────────────────────────
-(function initWeekBtns(){
-  const row = document.getElementById('weekBtnRow');
-  if(!row) return;
-  // Show W1~W22 (past + near future), group by 5
-  const groups = [
-    {label:'W1–W5',   range:[1,5]},
-    {label:'W6–W10',  range:[6,10]},
-    {label:'W11–W15', range:[11,15]},
-    {label:'W16–W20', range:[16,20]},
-    {label:'W21–W25', range:[21,25]},
-    {label:'W26–W30', range:[26,30]},
-    {label:'W31–W40', range:[31,40]},
-    {label:'W41–W50', range:[41,50]},
-    {label:'W51–W66', range:[51,66]},
-  ];
-  groups.forEach(g=>{
-    const btn = document.createElement('button');
-    btn.textContent = g.label;
-    btn.style.cssText = `font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;
-      border:1px solid #e2e8f0;background:white;color:#374151;cursor:pointer;
-      font-family:inherit;transition:all .12s;`;
-    btn.onmouseover = ()=>{ if(!btn.dataset.active) btn.style.background='#f1f5f9'; };
-    btn.onmouseout  = ()=>{ if(!btn.dataset.active) btn.style.background='white'; };
-    btn.onclick = ()=>{
-      document.querySelectorAll('#weekBtnRow button').forEach(b=>{
-        b.style.background='white'; b.style.color='#374151'; b.style.borderColor='#e2e8f0';
-        delete b.dataset.active;
-      });
-      btn.style.background='#0f172a'; btn.style.color='white'; btn.style.borderColor='#0f172a';
-      btn.dataset.active='1';
-      renderWeekRange(g.range[0], g.range[1]);
-    };
-    row.appendChild(btn);
-  });
-  // Auto-click the group containing current week (W20)
-  setTimeout(()=>{
-    const btns = row.querySelectorAll('button');
-    btns[3]&&btns[3].click(); // W16-W20
-  }, 100);
-})();
-
-function renderWeekRange(from, to){
-  const panel = document.getElementById('weekTaskPanel');
-  let html = '';
-  for(let w=from; w<=to; w++){
-    const d = WEEK_TASKS[w];
-    const isCurrent = (w === 20);
-    const bg = isCurrent ? '#0f172a' : 'white';
-    const textColor = isCurrent ? 'white' : '#0f172a';
-    const subColor = isCurrent ? '#94a3b8' : '#64748b';
-    const borderColor = isCurrent ? '#0f172a' : '#e2e8f0';
-    html += `<div style="border-bottom:1px solid #f1f5f9;padding:12px 20px;background:${bg};">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
-        <span style="font-size:13px;font-weight:700;color:${textColor};">W${w}${isCurrent?' — 本週':''}</span>
-        <span style="font-size:10px;color:${subColor};">${d ? d.phase : '—'}</span>
-      </div>`;
-    if(d && d.person){
-      html += `<div style="font-size:10px;color:${subColor};margin-bottom:5px;">負責：${d.person}</div>`;
-    }
-    if(d && d.tasks && d.tasks.length){
-      d.tasks.forEach(t=>{
-        html += `<div style="font-size:12px;color:${isCurrent?'#e2e8f0':'#334155'};padding:2px 0 2px 10px;border-left:2px solid ${isCurrent?'#475569':'#e2e8f0'};margin-bottom:3px;">${t}</div>`;
-      });
-    } else {
-      html += `<div style="font-size:12px;color:${subColor};font-style:italic;">此週無指定任務</div>`;
-    }
-    html += '</div>';
-  }
-  panel.innerHTML = html || '<div style="padding:20px;color:#94a3b8;font-size:12px;text-align:center;">無資料</div>';
-}
-</script>
 </html>
 </body></html>
