@@ -107,7 +107,6 @@
 /* Row stripes */
 .db-table tbody tr:nth-child(even) td { background:#fafafa; }
 .db-table tbody tr:nth-child(even):hover td { background:#f0f9ff; }
-
 </style> <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet"></head><body>
 <h1>托嬰中心／幼兒園立案完整流程甘特圖</h1>
 <p class="subtitle">主管機關：教育局（幼兒園）/ 社會局（托嬰中心）｜含場地裝潢時程</p>
@@ -126,7 +125,7 @@
 <div class="status-bar">
   <div class="status-card" style="border-left:3px solid #374151;cursor:pointer" onclick="document.getElementById('weekPopup').classList.add('open')">
     <div class="status-card-label" style="color:#374151;font-size:13px;font-weight:700;">今日週數 <span style="font-size:9px;color:#9ca3af;font-weight:400;">（點擊查看）</span></div>
-    <div class="status-card-val" style="color:#0f172a">第 20 週</div>
+    <div class="status-card-val" style="color:#0f172a">第 21 週</div>
     <div class="status-card-sub">基準日：2025-12-24</div>
   </div>
   <div class="status-card" style="border-left:3px solid #ef4444;cursor:pointer;display:none" onclick="document.getElementById('delayPopup').classList.add('open')">
@@ -156,24 +155,22 @@
     <div class="status-card-sub">佔總資金 0.2%｜結餘 $94,811,000</div>
   </div>
 </div>
-
 <!-- 延遲 Popup -->
 <div id="delayPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')"><div class="delay-popup-box"><div class="delay-popup-title">⚠️ 延遲項目說明 <button class="delay-close" onclick="document.getElementById('delayPopup').classList.remove('open')">✕</button></div><div class="delay-item"><div class="delay-dot" style="background:#ef4444"></div><div><div class="delay-item-title">場地評估與選址｜延遲 +9 週</div><div class="delay-item-desc">預估完成：2026/01/14（W4）<br>幼兒園實際完成：2026/03/20（W13）→ 延遲 +9 週<br>托嬰中心實際完成：2026/03/17（W13）→ 延遲 +9 週<br>原因：蕭建築師確認合規、報價核准及合約簽署時程延後；設立確認較計畫晚 12 週啟動</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#f59e0b"></div><div><div class="delay-item-title">設計規劃｜進行中（提早啟動）</div><div class="delay-item-desc">預估起日：2026/01/21（W5）<br>實際：MAX 規劃圖說 2025/12/24（W1）起・蕭建築師勘查 2026/02/12（W8）起<br>蕭建築師製作圖說 2026/03/04（W11）起・Max 設計合約 2026/03/13 簽署<br>4月底前完成圖面確認</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#f59e0b"></div><div><div class="delay-item-title">建築物使用執照變更｜進行中（提早啟動）</div><div class="delay-item-desc">預估起日：2026/03/04（W11）<br>實際起日：2026/02/12（W8）—— 提早 3 週啟動<br>✅ 2026/04/20 教育局圖面討論完成<br>✅ 2026/04/21 實地場勘完成<br>黃結構技師合約：2026/04/14 啟動（W17）</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#6b7280"></div><div><div class="delay-item-title">整體時程影響</div><div class="delay-item-desc">前段場地評估延遲約 9 週，後續施工、立案等各階段預計同步順延。裝潢施工 16-24 週（4-6個月）為最大變數，建議預留 2-3 個月緩衝。</div></div></div></div></div>
-
 <!-- 週數 Popup -->
 <div id="weekPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="delay-popup-box" style="max-width:520px;padding:0;overflow:hidden;">
     <div style="background:#0f172a;color:white;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
       <div>
         <div style="font-size:15px;font-weight:700;letter-spacing:.02em;">專案週數總覽</div>
-        <div style="font-size:11px;color:#94a3b8;margin-top:2px;">基準日 2025-12-24 · 今日 2026/05/07</div>
+        <div style="font-size:11px;color:#94a3b8;margin-top:2px;">基準日 2025-12-24 · 今日 2026/05/15</div>
       </div>
       <button class="delay-close" style="color:white;" onclick="document.getElementById('weekPopup').classList.remove('open')">✕</button>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #e2e8f0;">
       <div style="padding:14px 16px;text-align:center;border-right:1px solid #e2e8f0;">
         <div style="font-size:10px;color:#94a3b8;margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase;">今日週數</div>
-        <div style="font-size:26px;font-weight:800;color:#0f172a;line-height:1;">W20</div>
+        <div style="font-size:26px;font-weight:800;color:#0f172a;line-height:1;">W21</div>
         <div style="font-size:11px;color:#64748b;margin-top:3px;">2026/05/07</div>
       </div>
       <div style="padding:14px 16px;text-align:center;border-right:1px solid #e2e8f0;">
@@ -219,19 +216,14 @@
     </div>
   </div>
 </div>
-
 <!-- 建築師合約 Popup -->
 <div id="contractPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')"><div class="delay-popup-box"><div class="delay-popup-title">✅ 建築師合約詳情 <button class="delay-close" onclick="document.getElementById('contractPopup').classList.remove('open')">✕</button></div><div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;margin-bottom:14px;"><div style="font-size:12px;font-weight:700;color:#166534;margin-bottom:6px;">📋 蕭建築師｜變使・室裝許可合約</div><div style="font-size:11px;color:#374151;line-height:1.8;">簽約日：2026/03/19 完成用印<br>合約範圍：使用執照變更（變使）＋室內裝修許可（室裝）<br>合計費用：<strong>$630,000</strong></div></div><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px;">💳 分期付款進度</div><table class="finance-table"><thead><tr><th>期款</th><th>觸發條件</th><th class="num">金額</th><th>狀態</th></tr></thead><tbody><tr><td>第1期</td><td>確認並簽回報價單</td><td class="num in">$189,000</td><td><span style="background:#d1fae5;color:#065f46;font-size:10px;padding:1px 6px;border-radius:3px;font-weight:700">✅ 已付</span></td></tr><tr><td>第2期</td><td>領得圖面審查核准（工務局）</td><td class="num" style="color:#64748b">$189,000</td><td><span style="background:#f1f5f9;color:#94a3b8;font-size:10px;padding:1px 6px;border-radius:3px;font-weight:700">⏳ 待觸發</span></td></tr><tr><td>第3期</td><td>領得變使執照及裝修合格證</td><td class="num" style="color:#64748b">$189,000</td><td><span style="background:#f1f5f9;color:#94a3b8;font-size:10px;padding:1px 6px;border-radius:3px;font-weight:700">⏳ 待觸發</span></td></tr><tr><td>第4期</td><td>領得幼兒園、托嬰中心立案證書</td><td class="num" style="color:#64748b">$63,000</td><td><span style="background:#f1f5f9;color:#94a3b8;font-size:10px;padding:1px 6px;border-radius:3px;font-weight:700">⏳ 待觸發</span></td></tr><tr style="background:#f8fafc"><td colspan="2" style="font-weight:700">合計</td><td class="num" style="font-weight:700">$630,000</td><td></td></tr></tbody></table><div style="margin-top:12px;font-size:11px;font-weight:700;color:#374151;margin-bottom:6px;">📌 目前進度</div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 建築師勘查建物現況並評估合規（2026/02/12 起）</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 圖面確認合規及報價設計費、送審規費（02/12～03/04）</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 合約完成用印（03/19）・第一期款匯出 $189,000</div></div></div><div class="delay-item" style="border:none"><div class="delay-dot" style="background:#f59e0b"></div><div><div class="delay-item-title">🔄 建築師製作（變使、室裝）圖說送件（03/04 起，進行中）</div></div></div></div></div>
-
 <!-- 進行中 Popup -->
 <div id="inprogressPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')"><div class="delay-popup-box"><div class="delay-popup-title">🔄 使照變更｜進行中詳情 <button class="delay-close" onclick="document.getElementById('inprogressPopup').classList.remove('open')">✕</button></div><div style="background:#eff6ff;border:1px solid #93c5fd;border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:11px;color:#1e40af;line-height:1.8;"><strong>建築物使用執照變更（變使）＋室內裝修許可（室裝）</strong><br>實際起日：2026/02/12（W8）・提早 3 週啟動<br>負責：蕭建築師・黃結構技師・消防技師</div><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px;">✅ 已完成事項</div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 2026/04/20｜與教育局進行圖面討論</div><div class="delay-item-desc">托嬰B21・幼兒園A5~A9・公共空間平面確認</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 2026/04/21｜實地場勘完成</div><div class="delay-item-desc">出席：蕭建築師・Joey・Josh・心怡・總幹事・消技</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 2026/04/14｜黃結構技師合約啟動（W17）</div><div class="delay-item-desc">頭款：$50,000 已付・送件第二期款 $20,000 待觸發</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#16a34a"></div><div><div class="delay-item-title">✅ 2026/04/13｜採購發包啟動（W17）</div><div class="delay-item-desc">蔡雲明經理負責・廠商遴選發包進行中（W17~W20+）</div></div></div><div style="font-size:11px;font-weight:700;color:#374151;margin:10px 0 8px;">⏳ 待完成事項</div><div class="delay-item"><div class="delay-dot" style="background:#94a3b8"></div><div><div class="delay-item-title">工務局圖面審核核准</div><div class="delay-item-desc">核准後→蕭建築師第2期款 $189,000</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#94a3b8"></div><div><div class="delay-item-title">消防技師：消防＋防綜外審</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#94a3b8"></div><div><div class="delay-item-title">結構外審（審查費 $55,000）</div></div></div><div class="delay-item" style="border:none"><div class="delay-dot" style="background:#94a3b8"></div><div><div class="delay-item-title">領得變使執照及裝修合格證</div><div class="delay-item-desc">完成後→蕭建築師第3期款 $189,000・結構技師尾款 $50,000</div></div></div></div></div>
-
 <!-- 即將進行 Popup -->
 <div id="nextPopup" class="delay-popup" onclick="if(event.target===this)this.classList.remove('open')"><div class="delay-popup-box"><div class="delay-popup-title">📌 室內裝修許可申請｜即將進行 <button class="delay-close" onclick="document.getElementById('nextPopup').classList.remove('open')">✕</button></div><div style="background:#faf5ff;border:1px solid #c4b5fd;border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:11px;color:#6d28d9;line-height:1.8;"><strong>負責：蔡雲明經理・蕭建築師</strong><br>預估起日：2026/04/29（W19）<br>採購發包（W17起）→ 取得施工許可後開工</div><div style="font-size:11px;font-weight:700;color:#374151;margin-bottom:8px;">📋 採購發包項目</div><div class="delay-item"><div class="delay-dot" style="background:#7c3aed"></div><div><div class="delay-item-title">委託合格室內裝修業者</div><div class="delay-item-desc">已完成採購發包・確認施工廠商後提出申請</div></div></div><div class="delay-item"><div class="delay-dot" style="background:#7c3aed"></div><div><div class="delay-item-title">準備室內裝修申請文件</div><div class="delay-item-desc">蕭建築師提出室裝申請・送建管處審核</div></div></div><div class="delay-item" style="border:none"><div class="delay-dot" style="background:#7c3aed"></div><div><div class="delay-item-title">取得室內裝修施工許可證</div><div class="delay-item-desc">核准後即可正式動工（約 2–4 週審核）</div></div></div><div style="font-size:11px;font-weight:700;color:#374151;margin:10px 0 8px;">📅 時程預估</div><div style="font-size:11px;color:#374151;background:#f8fafc;border-radius:6px;padding:10px 12px;line-height:1.8;border:1px solid #e2e8f0;">・預估起日：W19（2026/04/29）<br>・預估完成：W22（2026/05/20）<br>・審核約 2–4 週</div></div></div>
-
 <!-- 財務明細 Popup -->
 <div id="financePopup" class="finance-popup" onclick="if(event.target===this)this.classList.remove('open')"><div class="finance-popup-box"><div class="delay-popup-title">💰 專款帳戶流水帳 <button class="delay-close" onclick="document.getElementById('financePopup').classList.remove('open')">✕</button></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;"><div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 12px;"><div style="font-size:10px;color:#166534;margin-bottom:2px;">📥 專案總資金</div><div style="font-size:15px;font-weight:700;color:#166534;">$95,000,000</div></div><div style="background:#fff1f2;border:1px solid #fca5a5;border-radius:8px;padding:10px 12px;"><div style="font-size:10px;color:#dc2626;margin-bottom:2px;">📤 已花費金額</div><div style="font-size:15px;font-weight:700;color:#dc2626;">$189,000</div><div style="font-size:10px;color:#94a3b8;margin-top:1px;">佔總資金 0.20%</div></div><div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;"><div style="font-size:10px;color:#475569;margin-bottom:2px;">🏦 帳上結餘</div><div style="font-size:15px;font-weight:700;color:#0f172a;">$94,811,000</div></div></div><div style="font-size:11px;color:#64748b;margin-bottom:4px;">支出進度</div><div class="finance-progress"><div class="finance-progress-bar" style="width:0.2%"></div></div><div style="font-size:10px;color:#94a3b8;margin-bottom:14px;">$189,000 / $95,000,000（0.20%）</div><div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:6px;">📋 交易明細</div><table class="finance-table"><thead><tr><th>日期</th><th>摘要</th><th class="num">存入</th><th class="num">支出</th><th class="num">帳上結餘</th><th>備註</th></tr></thead><tbody><tr><td>2025/12/31</td><td>蒙特梭利教育推廣專案費</td><td class="num in">$95,000,000</td><td class="num">—</td><td class="num">$95,000,000</td><td></td></tr><tr><td>2026/03/20</td><td>蕭建築師第1期款－確認並簽回報價單</td><td class="num">—</td><td class="num out">$189,000</td><td class="num">$94,811,000</td><td>已請款</td></tr></tbody></table><div style="font-size:12px;font-weight:700;color:#374151;margin:16px 0 6px;">⏳ 預計支出（待觸發）</div><table class="finance-table"><thead><tr><th>觸發條件</th><th class="num">金額</th></tr></thead><tbody><tr><td class="pending">蕭建築師第2期款－領得圖面審查核准時</td><td class="num pending">$189,000</td></tr><tr><td class="pending">蕭建築師第3期款－領得變使執照合格證時</td><td class="num pending">$189,000</td></tr><tr><td class="pending">蕭建築師第4期款－領得幼兒園、托嬰中心立案證書時</td><td class="num pending">$63,000</td></tr><tr style="background:#f8fafc;"><td style="font-weight:700;color:#374151;">合計預計支出</td><td class="num" style="font-weight:700;color:#374151;">$441,000</td></tr></tbody></table></div></div>
-
 <div class="filter-bar"> <span style="font-size:11px;color:#64748b;font-weight:600;">顯示：</span> <button class="filter-btn active" onclick="setFilter('all',this)">全部</button> <button class="filter-btn" onclick="setFilter('actual',this)">實際進度</button> <button class="filter-btn" onclick="setFilter('done',this)">已完成</button> <button class="filter-btn" onclick="setFilter('plan',this)">預估</button></div>
 <div class="legend">
   <div class="legend-item"><div style="width:26px;height:7px;border-radius:2px;background:#1e293b;"></div><span>實際進度</span></div>
@@ -249,8 +241,8 @@
 <script>
 const MAX_WEEKS=70,MONTHS=18;
 const BASE_DATE=new Date('2025-12-24');
-const TODAY=new Date('2026-05-07');
-const CURRENT_WEEK=20; // 2026-05-07
+const TODAY=new Date('2026-05-15');
+const CURRENT_WEEK=21; // 2026-05-15
 const MONTH_LABELS=[];
 const _md=new Date(BASE_DATE);_md.setDate(1);
 for(let i=0;i<MONTHS;i++){MONTH_LABELS.push(`${_md.getFullYear()}/${String(_md.getMonth()+1).padStart(2,'0')}`);_md.setMonth(_md.getMonth()+1);}
@@ -259,13 +251,12 @@ const BLUE={bar:'#2563eb',light:'#dbeafe',text:'#1e40af'};
 function weekToDate(w){const d=new Date(BASE_DATE.getTime()+(w-1)*7*24*3600*1000);return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;}
 function pct(w){return((w-1)/MAX_WEEKS*100).toFixed(3)+'%';}
 function pctW(w){return(w/MAX_WEEKS*100).toFixed(3)+'%';}
-
 // groups 結構：每個 group 有 items（合併顯示用）、kItems（幼兒園）、dItems（托嬰中心）
 // 若未指定 kItems/dItems，對比時兩欄均顯示 items
 const phases=[
 {id:'p1',phaseName:'場地評估與選址',status:'done',
- k:{duration:'3-4週',start:1,end:4,actualStart:8,actualEnd:13,delayWeeks:9},
- d:{duration:'2-4週',start:1,end:4,actualStart:8,actualEnd:13,delayWeeks:9},
+ k:{duration:'已完成',start:1,end:4,actualStart:1,actualEnd:13,delayWeeks:9},
+ d:{duration:'已完成',start:1,end:4,actualStart:1,actualEnd:13,delayWeeks:9},
  detail:{planK:'2025/12/24（W1）～ 2026/01/14（W4）',planD:'2025/12/24（W1）～ 2026/01/14（W4）',
   actualK:'2026/02/12（W8）～ 2026/03/20（W13）',actualD:'2026/02/12（W8）～ 2026/03/17（W13）',
   note:'設立確認起日：2025-12-24，蕭建築師合約 03/19 完成用印，第一期款匯出 189,000',
@@ -276,24 +267,24 @@ const phases=[
     dItems:['確定設立地點（托嬰中心B21）','確認土地分區（第四組：托兒教保服務設施）','確認建物用途是否為F3類組','評估建物面積與收托人數（每人室內2㎡以上）','應先使用1樓，不足再用2、3樓']},
    {title:'建築師合約與報價',person:'蕭建築師',isDocs:false,
     items:['建築師報價立案回覆同意（03/17～03/20）','建築師合約完成用印（03/19～03/20）・第一期款匯出 189,000','建築師勘查建物現況並評估合規（02/12 起）'],
-    kItems:['建築師報價立案回覆同意（03/17～03/20）','建築師合約完成用印（03/19～03/20）・第一期款匯出 189,000','建築師勘查建物現況並評估合規（02/12 起）'],
-    dItems:['建築師報價立案回覆同意（03/17～03/20）','建築師合約完成用印（03/19～03/20）・第一期款匯出 189,000','建築師勘查建物現況並評估合規（02/12 起）']},
+    kItems:['建築師報價立案回覆同意（03/17～03/20）','建築師合約完成用印（03/19～03/20）・第一期款匯出 189,000','建築師勘查建物現況並評估合規（02/12 起）','托嬰幼兒園租約擬定（怡慧經理、吳鴻志協理・2026/04/30 起）','幼兒園戶外活動空間租約（Joye・2026/04/28 起）'],
+    dItems:['建築師報價立案回覆同意（03/17～03/20）','建築師合約完成用印（03/19～03/20）・第一期款匯出 189,000','建築師勘查建物現況並評估合規（02/12 起）','托嬰幼兒園租約擬定（怡慧經理、吳鴻志協理・2026/04/30 起）','幼兒園戶外活動空間租約（Joye・2026/04/28 起）']},
    {title:'應備文件',isDocs:true,
     items:['土地使用分區證明','建築物登記謄本','地籍圖謄本','房屋租賃契約或所有權狀（5年以上公證）'],
     kItems:['土地使用分區證明','建築物登記謄本','地籍圖謄本','房屋租賃契約或所有權狀（5年以上公證）'],
     dItems:['土地使用分區證明','建築物登記謄本','地籍圖謄本','房屋租賃契約或所有權狀（5年以上公證）']},
   ]}},
 {id:'p2',phaseName:'設計規劃',status:'inprogress',
- k:{duration:'4-6週',start:5,end:10,actualStart:1,actualEnd:null,delayWeeks:null},
- d:{duration:'3-4週',start:5,end:8,actualStart:1,actualEnd:null,delayWeeks:null},
+ k:{duration:'進行中（圖說已遞件）',start:5,end:10,actualStart:1,actualEnd:null,delayWeeks:null},
+ d:{duration:'進行中（圖說已遞件）',start:5,end:8,actualStart:1,actualEnd:null,delayWeeks:null},
  detail:{planK:'2026/01/21（W5）～ 2026/02/25（W10）',planD:'2026/01/21（W5）～ 2026/02/11（W8）',
   actualK:'2025/12/24（W1）起，進行中',actualD:'2025/12/24（W1）起，進行中',
   note:'4月底前完成圖面確認・Max 設計合約 03/13 簽署',
   groups:[
    {title:'整體規劃（MAX・Amber）',person:'MAX/Amber',isDocs:false,
     items:['規劃托嬰幼兒園圖說（2025/12/24 起，2026/04/13 完成）','整體規劃報告（2026/02/12 起）','Max 提報設計合約、共識、簽約（03/13）'],
-    kItems:['規劃托嬰幼兒園圖說（2025/12/24 起，2026/04/13 完成）','整體規劃報告（2026/02/12 起）','Max 提報設計合約、共識、簽約（03/13）'],
-    dItems:['規劃托嬰幼兒園圖說（2025/12/24 起，2026/04/13 完成）','整體規劃報告（2026/02/12 起）','Max 提報設計合約、共識、簽約（03/13）']},
+    kItems:['規劃托嬰幼兒園圖說（2025/12/24 起，2026/04/13 完成）','整體規劃報告（2026/02/12 起）','Max 提報設計合約、共識、簽約（03/13 起 ~ 05/07 完成・含5/11補足定稿設計圖面後啟動採發流程）'],
+    dItems:['規劃托嬰幼兒園圖說（2025/12/24 起，2026/04/13 完成）','整體規劃報告（2026/02/12 起）','Max 提報設計合約、共識、簽約（03/13 起 ~ 05/07 完成・含5/11補足定稿設計圖面後啟動採發流程）']},
    {title:'空間設計細節',person:'MAX/筱凡',isDocs:false,
     items:['會議討論：場地風格、材料、色系、品牌 LOGO・造型','規劃必要空間（活動室、室外、盥洗室、健康中心、辦公室、廚房）','每名兒童室內活動面積：2歲幼兒2.5㎡、3歲以上2㎡（不含牆柱）','室外活動空間：每人至少2㎡，或鄰近場地30人×2㎡+60㎡','辦理裝修材料證明（如防火材料等，備註於Max合約）'],
     kItems:['會議討論：場地風格、材料、色系、品牌 LOGO','規劃必要空間（活動室、室外活動空間、盥洗室、健康中心、辦公室、廚房）','室內面積：2歲幼兒2.5㎡/人・3歲以上2㎡/人（不含牆柱）','室外空間：每人至少2㎡，或鄰近場地30人×2㎡+60㎡','辦理裝修材料證明（防火材料等，備註於Max合約）'],
@@ -308,24 +299,24 @@ const phases=[
     dItems:['擬變更平面圖說','消防安全設備平面圖說','空間配置說明書']},
   ]}},
 {id:'p3',phaseName:'建築物使用執照變更',status:'inprogress',
- k:{duration:'4-8週',start:11,end:18,actualStart:8,actualEnd:null,delayWeeks:null},
- d:{duration:'4-8週',start:9,end:16,actualStart:8,actualEnd:null,delayWeeks:null},
+ k:{duration:'進行中（預估至2026/08）',start:11,end:18,actualStart:8,actualEnd:null,delayWeeks:null},
+ d:{duration:'進行中（預估至2026/08）',start:9,end:16,actualStart:8,actualEnd:null,delayWeeks:null},
  detail:{planK:'2026/03/04（W11）～ 2026/04/22（W18）',planD:'2026/02/18（W9）～ 2026/04/08（W16）',
   actualK:'2026/02/12（W8）起，進行中',actualD:'2026/02/12（W8）起，進行中',
   note:'✅ 4/20 教育局圖面討論完成・✅ 4/21 實地場勘完成・黃結構技師合約 04/14 啟動',
   groups:[
    {title:'建築師辦理使照變更',person:'蕭建築師/筱凡',isDocs:false,
     items:['確認建物用途是否為F3類組','蕭建築師辦理變使、室裝許可手續','建管處書面審核・補正改善（如需）','建築師：工務局圖面審核核准（第二期款：189,000）','建築師領得變使執照及裝修合格證（第三期款：189,000）'],
-    kItems:['確認建物用途是否為F3類組','蕭建築師辦理變使、室裝許可手續','建管處書面審核・補正改善（如需）','工務局圖面審核核准（第二期款：189,000）','領得變使執照及裝修合格證（第三期款：189,000）'],
-    dItems:['確認是否需變更（＜200㎡可免辦）','向建管處申請變更使用執照','行政送審：辦理使用變更（含室裝申請）','建管處書面審核・補正改善（如需）','取得變更使用執照核准']},
+    kItems:['確認建物用途是否為F3類組','蕭建築師辦理變使、室裝許可手續','建築師製作(變使、室裝)平行審查送件及圖說（5/11正式遞件）・04/28~05/11','115.5.12教育局函覆：幼兒園平面符合法令規定','建管處書面審核・補正改善（如需）','工務局圖面審核核准（二局處圖面抵定，預估2026/06・第二期款：189,000）','結構外審完成（預估2026/08）','領得變使執照及裝修合格證（第三期款：189,000）'],
+    dItems:['確認是否需變更（＜200㎡可免辦）','向建管處申請變更使用執照','建築師製作(變使、室裝)平行審查送件及圖說（5/11正式遞件）・04/28~05/11','115.5.12教育局函覆：幼兒園平面符合法令規定','建管處書面審核・補正改善（如需）','工務局圖面審核核准（二局處圖面抵定，預估2026/06）','結構外審完成（預估2026/08）','取得變更使用執照核准']},
    {title:'結構技師',person:'黃結構技師/筱凡',isDocs:false,
     items:['結構技師報價單及合約完成（04/14 啟動，頭款：50,000）','結構技師使變&室裝申請送件（第二期款：20,000）','結構外審（審查費：55,000）','結構技師領到變使和室裝核准函（尾款：50,000）'],
-    kItems:['結構技師報價單及合約完成（04/14 啟動，頭款：50,000）','結構技師使變&室裝申請送件（第二期款：20,000）','結構外審（審查費：55,000）','結構技師領到變使和室裝核准函（尾款：50,000）'],
-    dItems:['結構技師報價單及合約完成（04/14 啟動，頭款：50,000）','結構技師使變&室裝申請送件（第二期款：20,000）','結構外審（審查費：55,000）','結構技師領到變使和室裝核准函（尾款：50,000）']},
+    kItems:['消防設備技師 呂文正技師（4/27現勘完成・5/5向宏壽申請影印圖說）','結構技師 黃榮富報價單及合約完成（04/14 啟動，頭款：50,000）','結構技師使變&室裝申請送件（第二期款：20,000）','結構外審（審查費：55,000）','結構技師領到變使和室裝核准函（尾款：50,000）','水星防火工程 陳家緯協理（等待圖面完成後報價）'],
+    dItems:['消防設備技師 呂文正技師（4/27現勘完成・5/5向宏壽申請影印圖說）','結構技師 黃榮富報價單及合約完成（04/14 啟動，頭款：50,000）','結構技師使變&室裝申請送件（第二期款：20,000）','結構外審（審查費：55,000）','結構技師領到變使和室裝核准函（尾款：50,000）','水星防火工程 陳家緯協理（等待圖面完成後報價）']},
    {title:'主管機關會勘（已完成）',person:'蕭建築師・心怡・Joey等',isDocs:false,
     items:['✅ 2026/04/20 與教育局圖面討論（托嬰B21、幼兒園A5~A9、公共空間）','✅ 2026/04/21 實地場勘（蕭建築師、Joey、josh、心怡、總幹事、消技）'],
-    kItems:['✅ 2026/04/20 與教育局圖面討論（幼兒園A5~A9、公共空間）','✅ 2026/04/21 實地場勘完成'],
-    dItems:['✅ 2026/04/20 與教育局圖面討論（托嬰B21空間確認）','✅ 2026/04/21 實地場勘完成']},
+    kItems:['✅ 2026/04/20 與教育局圖面討論（幼兒園A5~A9、公共空間）','✅ 2026/04/21 實地場勘完成（蕭建築師、Joey、josh、心怡、總幹事）','✅ 2026/04/28 建築師提交平行審查圖說','✅ 2026/05/11 正式遞件送審','115.5.12 教育局函覆：幼兒園平面符合法令規定'],
+    dItems:['✅ 2026/04/20 與社會局圖面討論（托嬰B21空間確認）','✅ 2026/04/21 實地場勘完成（蕭建築師、Joey、josh、心怡、總幹事）','✅ 2026/04/28 建築師提交平行審查圖說','✅ 2026/05/11 正式遞件送審','115.5.12 教育局函覆：幼兒園平面符合法令規定']},
    {title:'應備文件',isDocs:true,
     items:['建築物使用執照影本及竣工圖','建物改良測量成果圖','變更使用申請書','結構檢討報告書（如有主要構造變更）'],
     kItems:['建築物使用執照影本','建築物竣工圖','變更使用申請書','建物改良測量成果圖'],
@@ -347,16 +338,16 @@ const phases=[
     dItems:['室內裝修申請書','室內裝修圖說','室內裝修從業者登記證影本']},
   ]}},
 {id:'p4b',phaseName:'採購發包流程',status:'inprogress',hidePlan:true,
- k:{duration:'進行中',start:19,end:22,actualStart:17,actualEnd:null,delayWeeks:null},
- d:{duration:'進行中',start:17,end:20,actualStart:17,actualEnd:null,delayWeeks:null},
+ k:{duration:'進行中',start:19,end:22,actualStart:13,actualEnd:null,delayWeeks:null},
+ d:{duration:'進行中',start:17,end:20,actualStart:13,actualEnd:null,delayWeeks:null},
  detail:{planK:'2026/04/29（W19）～ 2026/05/20（W22）',planD:'2026/04/15（W17）～ 2026/05/06（W20）',
   actualK:'2026/04/13（W17）起，進行中',actualD:'2026/04/13（W17）起，進行中',
   note:'蔡雲明經理負責｜2026/04/13（W17）已通知Max・廠商遴選進行中（W17-W20）',
   groups:[
    {title:'建築師、技師採購（蔡雲明經理）',person:'蔡雲明經理/筱凡',isDocs:false,
     items:['使變、室裝建築師技師簽證等採購作業','消防+防綜/室裝施工+弱電 廠商遴選'],
-    kItems:['使變、室裝建築師技師簽證等採購作業','消防+防綜/室裝施工+弱電 廠商遴選'],
-    dItems:['使變、室裝建築師技師簽證等採購作業','消防+防綜/室裝施工+弱電 廠商遴選']},
+    kItems:['使變、室裝建築師技師簽證等採購作業（蔡雲明經理、李全襄理，2026/03/19 起）','消防+防綜/室裝施工+弱電 廠商遴選','室裝建築、施工發包','室裝建築、消防發包'],
+    dItems:['使變、室裝建築師技師簽證等採購作業（蔡雲明經理、李全襄理，2026/03/19 起）','消防+防綜/室裝施工+弱電 廠商遴選','室裝建築、施工發包','室裝建築、消防發包']},
    {title:'採購教具、設備',person:'蔡雲明經理/Amber',isDocs:false,
     items:['採購教具、設備等（給付開辦設施設備費）','確立教具購買清單（蔡雲明/Amber）','確立辦公設備、桌椅等採購清單'],
     kItems:['採購教具、設備等（給付開辦設施設備費）','確立教具購買清單（蔡雲明/Amber）','確立辦公設備、桌椅等採購清單'],
@@ -367,8 +358,8 @@ const phases=[
     dItems:['採購發包清單','廠商報價單','承攬合約書','採購核准文件']},
   ]}},
 {id:'p5',phaseName:'場地裝潢施工',status:'pending',
- k:{duration:'16-24週（4-6個月）',start:23,end:46,actualStart:null,actualEnd:null,delayWeeks:null},
- d:{duration:'16-24週（4-6個月）',start:21,end:44,actualStart:null,actualEnd:null,delayWeeks:null},
+ k:{duration:'約12個月（含審查流程）',start:23,end:46,actualStart:null,actualEnd:null,delayWeeks:null},
+ d:{duration:'約12個月（含審查流程）',start:21,end:44,actualStart:null,actualEnd:null,delayWeeks:null},
  detail:{planK:'2026/05/27（W23）～ 2026/11/04（W46）',planD:'2026/05/13（W21）～ 2026/10/21（W44）',
   actualK:null,actualD:null,note:'施工廠商待發包確認後執行・營建郭協理負責施工查核',
   groups:[
@@ -378,7 +369,7 @@ const phases=[
     dItems:['第1-2週：拆除工程、廢棄物清運','第2-4週：水電配管、管線預埋','第4-8週：泥作工程、隔間牆施作','第8-12週：地板施工、天花板工程','第12-16週：廚房/廁所設備安裝、木作工程','第16-20週：消防設備安裝、空調設備安裝','第20-22週：油漆粉刷、監視錄影設備安裝','第22-24週：清潔整理、設備測試、缺失改善']},
   ]}},
 {id:'p6k',phaseName:'消防查驗',status:'pending',
- k:{duration:'2-3週',start:47,end:49,actualStart:null,actualEnd:null,delayWeeks:null},
+ k:{duration:'4-6個月（消防評定）',start:47,end:49,actualStart:null,actualEnd:null,delayWeeks:null},
  d:null,
  detail:{planK:'2026/11/11（W47）～ 2026/11/25（W49）',planD:null,actualK:null,actualD:null,
   note:'幼兒園專屬流程',
@@ -389,8 +380,8 @@ const phases=[
     items:['消防安全設備圖說','消防安全設備查驗申請書','消防安全機關查驗合格證明']},
   ]}},
 {id:'p7',phaseName:'裝修竣工查驗',status:'pending',
- k:{duration:'2-4週',start:50,end:52,actualStart:null,actualEnd:null,delayWeeks:null},
- d:{duration:'2-4週',start:45,end:48,actualStart:null,actualEnd:null,delayWeeks:null},
+ k:{duration:'2個月',start:50,end:52,actualStart:null,actualEnd:null,delayWeeks:null},
+ d:{duration:'2個月',start:45,end:48,actualStart:null,actualEnd:null,delayWeeks:null},
  detail:{planK:'2026/12/02（W50）～ 2026/12/16（W52）',planD:'2026/10/28（W45）～ 2026/11/18（W48）',
   actualK:null,actualD:null,note:'',
   groups:[
@@ -404,8 +395,8 @@ const phases=[
     dItems:['室內裝修合格證明','消防安全設備檢修申報','建築物公共安全檢查申報結果通知書']},
   ]}},
 {id:'p8',phaseName:'準備立案文件',status:'pending',
- k:{duration:'2-4週',start:53,end:56,actualStart:null,actualEnd:null,delayWeeks:null},
- d:{duration:'2-4週',start:49,end:51,actualStart:null,actualEnd:null,delayWeeks:null},
+ k:{duration:'1-2個月',start:53,end:56,actualStart:null,actualEnd:null,delayWeeks:null},
+ d:{duration:'1-2個月',start:49,end:51,actualStart:null,actualEnd:null,delayWeeks:null},
  detail:{planK:'2026/12/23（W53）～ 2027/01/13（W56）',planD:'2026/11/25（W49）～ 2026/12/09（W51）',
   actualK:null,actualD:null,note:'',
   groups:[
@@ -465,8 +456,8 @@ const phases=[
     dItems:['立案證書','設立許可函']},
   ]}},
 {id:'p_hr',phaseName:'招募與師培（同步進行）',status:'inprogress',hidePlan:true,
- k:{duration:'進行中',start:8,end:37,actualStart:8,actualEnd:null,delayWeeks:null},
- d:{duration:'進行中',start:8,end:37,actualStart:8,actualEnd:null,delayWeeks:null},
+ k:{duration:'進行中',start:8,end:37,actualStart:7,actualEnd:null,delayWeeks:null},
+ d:{duration:'進行中',start:8,end:37,actualStart:7,actualEnd:null,delayWeeks:null},
  detail:{planK:'同步進行，不受主流程限制',planD:'同步進行，不受主流程限制',
   actualK:'2026/02/09（W8）起，持續至 2026/08/30（W37）',actualD:'2026/02/09（W8）起，持續至 2026/08/30（W37）',
   note:'招募可與其他階段同步進行',
@@ -477,9 +468,7 @@ const phases=[
     dItems:['師資培訓（托育人員）','職前訓練','排定值班表']},
   ]}},
 ];
-
 let activeIdx=null,currentFilter='all';
-
 function setFilter(f,btn){
   currentFilter=f;
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
@@ -498,7 +487,6 @@ function renderBars(){
   });
 }
 function setTodayLineVisible(v){const t=document.getElementById('today-line');if(t)t.style.opacity=v?'1':'0';}
-
 // ── 切換視圖（合併 / 幼嬰對比）──────────────────────────────
 function switchView(uid,mode){
   ['merged','compare'].forEach(v=>{
@@ -509,13 +497,11 @@ function switchView(uid,mode){
     box.style.display=(v===mode)?'':'none';
   });
 }
-
 // ── buildDetailHTML ──────────────────────────────────────────────
 function buildDetailHTML(phase){
   const hasK=!!phase.k,hasD=!!phase.d;
   const sc={done:{bg:'#d1fae5',text:'#065f46',label:'✅ 已完成'},inprogress:{bg:'#fef3c7',text:'#92400e',label:'🔄 進行中'},pending:{bg:'#f1f5f9',text:'#475569',label:'⏳ 未開始'}}[phase.status]||{bg:'#f1f5f9',text:'#475569',label:'⏳ 未開始'};
   const d=phase.detail;
-
   // 預估時程
   let planHTML=`<div class="info-section"><div class="info-section-title">📅 預估時程</div>`;
   if(hasK&&hasD&&d.planK&&d.planD){
@@ -524,7 +510,6 @@ function buildDetailHTML(phase){
   } else if(hasK&&d.planK){planHTML+=`<div style="font-size:11px;"><span class="date-val">${d.planK}</span></div>`;}
   else if(hasD&&d.planD){planHTML+=`<div style="font-size:11px;"><span class="date-val">${d.planD}</span></div>`;}
   planHTML+=`</div>`;
-
   // 實際進度
   let actualHTML='';
   if(phase.status!=='pending'&&(d.actualK||d.actualD)){
@@ -533,15 +518,12 @@ function buildDetailHTML(phase){
     if(d.actualD)actualHTML+=`<div class="date-item"><span class="date-label">👶 托嬰中心：</span><span class="date-val">${d.actualD}</span>${phase.d?.delayWeeks>0?` <span class="diff-pos">延遲+${phase.d.delayWeeks}週</span>`:''}</div>`;
     actualHTML+=`</div></div>`;
   }
-
   // 補充說明
   let noteHTML='';
   if(d.note)noteHTML=`<div class="info-section" style="margin-top:8px;background:#fffbeb;border-color:#fcd34d;"><div class="info-section-title" style="color:#92400e">📌 補充說明</div><div style="font-size:12px;color:#78350f;line-height:1.6">${d.note}</div></div>`;
-
   const groups=d.groups||[];
   const uid='dv_'+phase.id;
   const showToggle=hasK&&hasD&&groups.length>0;
-
   // ── 合併 view：原始 doc4 邏輯，使用 items ──
   const renderMerged=()=>{
     const colA=[],colB=[];
@@ -555,7 +537,6 @@ function buildDetailHTML(phase){
     }).join('');
     return `<div class="detail-cols"><div class="detail-col">${renderCol(colA)}</div>${colB.length?`<div class="detail-col">${renderCol(colB)}</div>`:''}</div>`;
   };
-
   // ── 對比 view：左幼右嬰，每個 group 對齊，使用 kItems/dItems ──
   const renderCompare=()=>{
     let h=`<div class="cmp-wrap">
@@ -575,7 +556,6 @@ function buildDetailHTML(phase){
     h+=`</div>`;
     return h;
   };
-
   // ── 決定顯示方式 ──
   let bodyHTML='';
   if(showToggle){
@@ -588,11 +568,9 @@ function buildDetailHTML(phase){
   } else {
     bodyHTML=renderMerged();
   }
-
   const borderCol=(hasK&&hasD)?'#94a3b8':(hasK?GREEN.bar:BLUE.bar);
   return{borderCol,html:`<div class="detail-title">${phase.phaseName} <span style="font-size:11px;background:${sc.bg};color:${sc.text};padding:2px 7px;border-radius:4px;font-weight:600">${sc.label}</span></div>${planHTML}${actualHTML}${noteHTML}${bodyHTML}`};
 }
-
 // ── buildChart（與 doc4 完全相同）────────────────────────────────
 function buildChart(){
   const container=document.getElementById('gc-chart');
@@ -603,7 +581,6 @@ function buildChart(){
   const ma=document.getElementById('months-area');
   for(let i=0;i<MONTHS;i++){const m=document.createElement('div');m.className='month-cell';m.style.cssText=`flex:0 0 ${(4/MAX_WEEKS*100).toFixed(3)}%;`;m.innerHTML=`${i+1}M<br><span style="font-size:9px;color:#64748b">${MONTH_LABELS[i]||''}</span>`;ma.appendChild(m);}
   const body=document.createElement('div');body.className='chart-body';
-
   phases.forEach((phase,idx)=>{
     const isDone=phase.status==='done',isIP=phase.status==='inprogress';
     const pw=document.createElement('div');pw.className='phase-wrapper';
@@ -618,12 +595,9 @@ function buildChart(){
       </div>`;
     pw.appendChild(lc);
     const bc=document.createElement('div');bc.className='bars-col';
-
     const makeTrack=(H,withGrid)=>{const t=document.createElement('div');t.style.cssText=`position:relative;width:100%;height:${H}px;flex-shrink:0;`;if(withGrid){for(let i=0;i<MONTHS;i++){const gl=document.createElement('div');gl.style.cssText=`position:absolute;top:0;bottom:0;left:${(i*4/MAX_WEEKS*100).toFixed(3)}%;width:.5px;background:#e2e8f0;pointer-events:none;`;t.appendChild(gl);}}return t;};
-
     const kD=phase.k,dD=phase.d;
     const phaseBg=document.createElement('div');phaseBg.className='bar-group';phaseBg.dataset.phase=idx;phaseBg.style.cssText='display:flex;flex-direction:column;gap:2px;width:100%;';
-
     const actS=Math.min(kD?.actualStart||Infinity,dD?.actualStart||Infinity);
     const actE=Math.max(kD?.actualEnd||-Infinity,dD?.actualEnd||-Infinity);
     const actualTrack=makeTrack(7,true);actualTrack.className='bar-actual';
@@ -636,7 +610,6 @@ function buildChart(){
       actualTrack.appendChild(ab);
     }
     phaseBg.appendChild(actualTrack);
-
     if(!phase.hidePlan){
       const _shift=phase.planShift!==undefined?phase.planShift:4;
       const planStart=Math.min(kD?kD.start:Infinity,dD?dD.start:Infinity)+_shift;
@@ -650,7 +623,6 @@ function buildChart(){
       }
     }
     bc.appendChild(phaseBg);pw.appendChild(bc);
-
     pw.addEventListener('click',()=>{
       const ex=body.querySelector('.inline-detail-row');
       if(activeIdx===idx){ex?.remove();activeIdx=null;setTodayLineVisible(true);return;}
@@ -662,17 +634,14 @@ function buildChart(){
     });
     body.appendChild(pw);
   });
-
   const ov=document.createElement('div');ov.style.cssText='position:absolute;top:0;bottom:0;left:0;right:0;pointer-events:none;';
   const tl=document.createElement('div');tl.id='today-line';
-  tl.innerHTML=`<div id="today-label">▼ 今日 W${CURRENT_WEEK}<br>2026/05/07</div>`;
+  tl.innerHTML=`<div id="today-label">▼ 今日 W${CURRENT_WEEK}<br>${TODAY.getFullYear()}/${String(TODAY.getMonth()+1).padStart(2,'0')}/${String(TODAY.getDate()).padStart(2,'0')}</div>`;
   ov.appendChild(tl);body.appendChild(ov);container.appendChild(body);
   requestAnimationFrame(()=>{const bw=body.offsetWidth-185;tl.style.left=(185+CURRENT_WEEK/MAX_WEEKS*bw)+'px';});
 }
 buildChart();
 </script></script>
-
-
 <!-- 原始資料庫 Popup -->
 <div class="db-overlay" id="dbOverlay" onclick="if(event.target===this)toggleDbPopup()">
   <div class="db-popup-box">
@@ -700,27 +669,23 @@ buildChart();
     </div>
   </div>
 </div>
-
 <script>
-const DB_SHEET1=[["蒙特梭利專案進度表","","","","","實際日期",""],["階段","階段細項","負責單位","配合人","工作內容 /備註","起日","迄日"],["完成籌備/ 建置期計畫","預算&團隊簡介、工作計畫","Amber","筱凡","托嬰、幼兒園設立招生、人才招募、師資培訓、開幕、營運，社區經營、形象廣告、健康中心","2025-12-24",""],["","規劃托嬰幼兒園圖說","MAX","筱凡","依照需求和空間用途討論規劃、決定格局畫圖","2025-12-24","2026-04-13"],["","整體規劃報告","MAX、Amber","筱凡","托嬰、幼兒園設立招生、人才招募、師資培訓、開幕、營運，社區經營、形象廣告、健康中心","2026-02-12",""],["","圖for我方及蕭建築師確認合規否及報價設計費、送審規費","蕭建築師","筱凡","(包括：托嬰、幼兒園設立、消防、排煙、結構、防火避難）","2026-02-12","2026-03-04"],["","採購發包流程","蔡雲明經理","筱凡","使變、室裝建築師、結構廂房技師簽證等","",""],["","採購發包流程","蔡雲明經理","筱凡","室裝建築、施工發包","",""],["","採購發包流程","蔡雲明經理","筱凡","室裝建築、消防發包","",""],["","Max提報設計合約、共識、簽約","MAX","筱凡","包括報價單及合約書","2026-03-13",""],["","會議討論－空間設計、空間樣貌等關鍵細節：場地的風格、材料、硬件使用模式、色系、造型、品牌意識&顏色、品牌LOGO、軟性美感、功能性、維護性....等","MAX","筱凡","使變、室裝建築師、結構廂房技師簽證等","",""],["","辦理裝修材料證明(如防火材料等...)","MAX","筱凡","提醒：未來要備註在MAX合約...","",""],["","消防技師","","筱凡","","",""],["","結構技師報價單及合約完成","黃榮富結構技師","筱凡","報價送簽核，表單簽回後，頭款：50,000","2026-04-14",""],["","結構技師使變&室裝申請送件","黃榮富結構技師","筱凡","送件時，付第二期款：20,000","",""],["","結構技師結構外審","","","審查費：55,000","",""],["","結構技師領到變使和室裝核准函","黃榮富結構技師","筱凡","尾款：50,000","",""],["","建築師報價立案回覆同意","蕭沈翊建築師","筱凡","估價表待用印回傳 合約書待完成、即可簽約","2026-03-17","2026-03-20"],["","建築師合約完成用印","蕭建築師","筱凡","第一期款匯出189,000","2026-03-19","2026-03-20"],["","建築師勘查建物現況並評估合規","蕭建築師","筱凡","4月底前圖面確認、先送教育局審圖、再送件變更使照及室裝申請送件","2026-02-12","2026-04-15"],["","建築師製作(變使、室裝)送件及圖說","蕭建築師","筱凡","4月底前圖面確認、先送教育局審圖、再送件變更使照及室裝申請送件","2026-03-04",""],["","建築師辦理變使、室裝許可手續","蕭建築師","筱凡","","",""],["","建築師: 工務局圖面審核核准","蕭建築師","筱凡","第二期款：189,000","",""],["","建築師領得變使執照及裝修合格證","蕭建築師","筱凡","第三期款：189,000 (領得幼兒園及托嬰中心立案證書，尾款：63,000)","",""],["","與主管機關教育局圖面討論：托嬰中心B21、幼兒園A5~A9、公共空間","蕭建築師、心怡","筱凡","1.幼兒園的活動空間在100公尺內，動線是沒問題的。 2.幼兒園的活動空間是需要是獨立使用的，所以需跟社區管委會簽訂租約，租約的期間，最少需要簽定5年以上，並且租約要辦理公證。","2026-04-20","2026-04-20"],["","實地場勘：托嬰中心B21、幼兒園A5~A9、公共空間","蕭建築師、Joey、josh、心怡、總幹事、消技","筱凡","","2026-04-21","2026-04-21"],["","托嬰幼兒園取名","","","","",""],["","給付籌備期人員&顧問費&租金","","HR","","",""],["招募","招募老師 (可同步)","","HR","","2026-02-09","2026-08-30"],["","師資培訓","","","","",""],["發包工程","","","","","",""],["","採購教具、設備等 給付【開辦設施設備費】","蔡雲明經理","筱凡","","",""],["動工","動工 (約需4個月","MAX","筱凡","(需4~5個月)","",""],["","驗工完成","","","","",""],["","贊助#2 籌備/建置期 粗估OOO萬 to OOO、OOO","","","","",""],["營運籌備","老師進駐、辦理師培(國內等級)、開放外部老師報名參與(?)","","","","",""],["","取得正式營運執照","","","","",""],["","招生(行銷宣傳)","","","","",""],["設立申請","托嬰幼兒園取名","","","","",""],["","申請書：財團法人申請設立法人附設私立托嬰中心 (私立幼兒園)","","","","",""],["","設園計畫書","","","包括名稱、園址、設立宗旨、預定招收 人數、編班方式及收退費基","",""],["","負責人國民身分證影本及最近 3 個月內核發之警察刑事紀錄證明","","","","",""],["","法人登記證明文件影本","","","","",""],["","法人章程影本","","","","",""],["","董事或理事名冊及國民身分證影本","","","","",""],["","董事會或理事會會議決議附設或附屬幼兒園之紀錄","","","","",""],["","建築物位置圖、平面圖及其概況","","","包括：建築物使用執照影本、建築物竣工圖、消防安全設備圖說及消防安全機關查驗合格之證明文件，並以平方公尺註明樓層、各隔間面積、用途說明及室內外總面積。","",""],["","土地及建築物使用權利證明文件","","","包括土地、建物登記（簿）謄本及其他使用權利證明文件。使用權利證明文件為租賃契約或使用同意書者，應經公證且有效期限自申請日起達 5 年以上。","",""],["","設施及設備檢核表","","","","",""],["","履行營運擔保證明影本","","","","",""],["","幼兒園教職員工名冊、切結書、身分證影本及相關資格證明文件","","","(含最近 3 個月內核發之警察刑事紀錄證明)","",""],["","領得幼兒園及托嬰中心立案證書","蕭建築師","筱凡","第三期款：63,000","",""],["營運","營運期 粗估OOO萬 to OOO、OOO","","","(*為支付哪些項目，詳見預算)","",""],["","試營運","","","","",""],["","營運","","","","",""]];
+const DB_SHEET1=[["蒙特梭利專案進度表", "", "", "", "", "實際日期", ""], ["階段", "階段細項", "負責單位", "配合人", "工作內容 /備註", "起日", "迄日"], ["完成籌備/ 建置期計畫", "預算&團隊簡介、工作計畫", "Amber", "筱凡", "托嬰、幼兒園設立招生、人才招募、師資培訓、開幕、營運，社區經營、形象廣告、健康中心", "2025-12-24", ""], ["", "規劃托嬰幼兒園圖說", "MAX", "筱凡", "依照需求和空間用途討論規劃、決定格局畫圖", "2025-12-24", "2026-04-13"], ["", "整體規劃報告", "MAX、Amber", "筱凡", "托嬰、幼兒園設立招生、人才招募、師資培訓、開幕、營運，社區經營、形象廣告、健康中心", "2026-02-12", ""], ["", "圖for我方及蕭建築師確認合規否及報價設計費、送審規費", "蕭建築師", "筱凡", "(包括：托嬰、幼兒園設立、消防、排煙、結構、防火避難）", "2026-02-12", "2026-03-04"], ["", "採購發包流程", "蔡雲明經理、李全襄理", "筱凡", "使變、室裝建築師、結構、消防技師簽證等", "2026-03-19", ""], ["", "採購發包流程", "蔡雲明經理", "筱凡", "室裝建築、施工發包", "", ""], ["", "採購發包流程", "蔡雲明經理", "筱凡", "室裝建築、消防發包", "", ""], ["", "Max提報設計合約、共識、簽約", "MAX", "筱凡", "包括報價單及合約書、5/11補足定稿設計圖面後啟動採發流程", "2026-03-13", "2026-05-07"], ["", "會議討論－空間設計、空間樣貌等關鍵細節：場地的風格、材料、硬件使用模式、色系、造型、品牌意識&顏色、品牌LOGO、軟性美感、功能性、維護性....等", "MAX", "筱凡", "使變、室裝建築師、結構廂房技師簽證等", "", ""], ["", "辦理裝修材料證明(如防火材料等...)", "MAX", "筱凡", "提醒：未來要備註在MAX合約...", "", ""], ["", "托嬰幼兒園租約擬定", "怡慧經理、吳鴻志協理", "筱凡", "海3租約條件擬定租約，已與宏壽吳協理說明租用細節規劃", "2026-04-30", ""], ["", "幼兒園戶外活動空間租約", "Joye", "筱凡", "海3租約條件擬定租約", "2026-04-28", ""], ["", "消防設備技師", "呂文正技師", "筱凡", "4/27現勘完成5/5向宏壽申請影印圖說申請書", "2026-05-05", ""], ["", "結構技師報價單及合約完成", "黃榮富技師", "筱凡", "報價送簽核，表單簽回後，頭款：50,000", "2026-04-14", ""], ["", "結構技師使變&室裝申請送件", "黃榮富技師", "筱凡", "送件時，付第二期款：20,000", "", ""], ["", "結構技師結構外審", "黃榮富技師", "", "審查費：55,000", "", ""], ["", "結構技師領到變使和室裝核准函", "黃榮富技師", "筱凡", "尾款：50,000", "", ""], ["", "水星防火工程", "陳家緯協理", "筱凡", "等待圖面完成後報價", "", ""], ["", "建築師報價立案回覆同意", "蕭沈翊建築師", "筱凡", "估價表待用印回傳 合約書待完成、即可簽約", "2026-03-17", "2026-03-20"], ["", "建築師合約完成用印", "蕭建築師", "筱凡", "第一期款匯出189,000", "2026-03-19", "2026-03-20"], ["", "建築師勘查建物現況並評估合規", "蕭建築師", "筱凡", "4月底前圖面確認、先送教育局審圖、再送件變更使照及室裝申請送件", "2026-02-12", "2026-04-15"], ["", "與主管機關教育局圖面討論：托嬰中心B21、幼兒園A5~A9、公共空間", "蕭建築師、心怡", "筱凡", "圖面確認及規劃幼兒園活動空間及與管委會簽訂租約配合細節", "2026-04-20", "2026-04-20"], ["", "建築師製作(變使、室裝)平行審查送件及圖說(5/11正式遞件)", "蕭建築師", "筱凡", "1.教育局已初步口頭確認圖面方向、戶外綠化空間原則可行(教育局發函) 2.社會局持續圖面審閱中、建築師需依意見修正 (115.5.12教育局函覆送審幼兒園平面符合法令規定)", "2026-04-28", "2026-05-11"], ["", "建築師辦理變使、室裝許可手續", "蕭建築師", "筱凡", "", "", ""], ["", "建築師: 工務局圖面審核核准(二局處圖面抵定)", "蕭建築師", "筱凡", "第二期款：189,000", "2026/06", ""], ["", "結構外審完成(約 1～1.5 個月)", "黃榮富結構技師", "", "一樓牆體拆除安全性、低差順平處理、結構補強簽證", "2026/08", ""], ["", "室裝動工(約4個月，搭架時可配合消防管線施工)", "Max、消防設備師", "", "1 拆除與清運 2 放樣與測量 3 結構補強 4 水電與消防配管 5 隔間工程排煙與空調 7 泥作與地坪 8 天花板工程 9 木作與櫃體 10 防火門與玻璃 11 油漆與飾面 12 消防設備安裝 13 設備測試 14 清潔與驗收", "", ""], ["", "消防性能評定完成(約 4～6 個月)", "水星公司", "", "排煙模擬、幼童逃生步行距離、防火區劃、排煙開口計算", "2026/12", ""], ["", "公務局實質審查(預估約 2 個月)", "建築師", "", "結構與消防評定完成後送件、進行正式書面審查", "2027/03", ""], ["", "消防局圖說審查(預估約 2 個月)", "呂文正消防設備師", "", "進行消防圖說審查、可能需補件修正", "2027/03", ""], ["", "正式施工階段(約 3 個月)", "呂文正消防設備師、Max", "", "隔間工程、防火工程、排煙設備、給排水、廁所調整、天花板與照明、空調設備", "2027/06", ""], ["", "竣工查驗(約 2 個月)", "建築師與消防、結構技師等", "", "室內裝修竣工查驗工務局／建管、消防竣工查驗消防局、變更使用竣工查驗工務局、公安申報檢查建管／公安、教育局立案會勘教育局、社會局立案會勘社會局", "2027/07", ""], ["", "公安申報(約 2 週)", "公共安全檢查專業人", "", "是要等到室內裝修（含消防審查）完成，建築物已具備新用途的安全設施，再由合格公安檢查機構進行檢查與申報", "2027/07", ""], ["", "正式立案與招生準備(約1~2月)", "建築師、Amber、Joyce", "", "1. 建築與空間 2. 消防安全 3. 人員配置 4. 行政制度 5. 現場設備", "2027/08", ""], ["", "建築師領得變使執照及裝修合格證", "蕭建築師", "筱凡", "第三期款：189,000 (領得幼兒園及托嬰中心立案證書，尾款：63,000)", "", ""], ["", "與主管機關教育局圖面討論：托嬰中心B21、幼兒園A5~A9、公共空間", "蕭建築師、心怡", "筱凡", "", "2026-04-20", "2026-04-20"], ["", "實地場勘：托嬰中心B21、幼兒園A5~A9、公共空間", "蕭建築師、Joey、josh、心怡、總幹事", "筱凡", "", "2026-04-21", "2026-04-21"], ["", "托嬰幼兒園取名", "", "", "", "", ""], ["", "給付籌備期人員&顧問費&租金", "", "HR", "", "", ""], ["招募", "招募老師 (可同步)", "", "HR", "", "2026-02-09", "2026-08-30"], ["", "師資培訓", "", "", "", "", ""], ["發包工程", "", "", "", "", "", ""], ["", "採購教具、設備等 給付【開辦設施設備費】", "蔡雲明經理", "筱凡", "", "", ""], ["動工", "動工 (約需4個月)", "MAX", "筱凡", "(需4~5個月)", "", ""], ["", "驗工完成", "", "", "", "", ""], ["", "贊助#2 籌備/建置期 粗估OOO萬 to OOO、OOO", "", "", "", "", ""], ["營運籌備", "老師進駐、辦理師培(國內等級)、開放外部老師報名參與", "", "", "", "", ""], ["", "取得正式營運執照", "", "", "", "", ""], ["", "招生(行銷宣傳)", "", "", "", "", ""], ["設立申請", "托嬰幼兒園取名", "", "", "", "", ""], ["", "申請書：財團法人申請設立法人附設私立托嬰中心 (私立幼兒園)", "", "", "", "", ""], ["", "設園計畫書", "", "", "包括名稱、園址、設立宗旨、預定招收人數、編班方式及收退費基", "", ""], ["", "負責人國民身分證影本及最近 3 個月內核發之警察刑事紀錄證明", "", "", "", "", ""], ["", "法人登記證明文件影本", "", "", "", "", ""], ["", "法人章程影本", "", "", "包括名稱、園址、設立宗旨、預定招收人數、編班方式及收退費基", "", ""], ["", "董事或理事名冊及國民身分證影本", "", "", "", "", ""], ["", "董事會或理事會會議決議附設或附屬幼兒園之紀錄", "", "", "", "", ""], ["", "建築物位置圖、平面圖及其概況", "", "", "包括：建築物使用執照影本、建築物竣工圖、消防安全設備圖說及消防安全機關查驗合格之證明文件，並以平方公尺註明樓層、各隔間面積、用途說明及室內外總面積。", "", ""], ["", "土地及建築物使用權利證明文件", "", "", "包括土地、建物登記（簿）謄本及其他使用權利證明文件。使用權利證明文件為租賃契約或使用同意書者，應經公證且有效期限自申請日起達 5 年以上。", "", ""], ["", "設施及設備檢核表", "", "", "", "", ""], ["", "履行營運擔保證明影本", "", "", "", "", ""], ["", "幼兒園教職員工名冊、切結書、身分證影本及相關資格證明文件", "", "", "(含最近 3 個月內核發之警察刑事紀錄證明)", "", ""], ["", "領得幼兒園及托嬰中心立案證書", "蕭建築師", "筱凡", "第三期款：63,000", "", ""], ["營運", "營運期 粗估OOO萬 to OOO、OOO", "", "", "(*為支付哪些項目，詳見預算)", "", ""], ["", "試營運", "", "", "", "", ""], ["", "營運", "", "", "", "", ""]];
 const DB_SHEET2=[["日期","摘要","存入專款","支出費用","帳上結餘","備註"],["2025-12-31","蒙特梭利教育推廣專案費","95000000","","95000000",""],["2026-03-20","蕭建築師第1期款-確認並簽回報價單","","189000","94811000","已請款"],["","蕭建築師第2期款-領得圖面審查時-189,000","","","0","待觸發"],["","蕭建築師第3期款-領得變使執照合格證時-189,000","","","0","待觸發"],["","蕭建築師第4期款-領得幼兒園、托嬰中心立案證書時-63000","","","0","待觸發"]];
 const DB_H1=['階段','階段細項','負責單位','配合人','工作內容／備註','起日','迄日'];
 const DB_H2=['日期','摘要','存入專款（$）','支出費用（$）','帳上結餘（$）','備註'];
 let dbOpen=false, dbInited=false, dbTab='sheet1';
-
 function toggleDbPopup(){
   dbOpen=!dbOpen;
   document.getElementById('dbOverlay').classList.toggle('open',dbOpen);
   if(dbOpen&&!dbInited){ buildAll(); dbInited=true; }
 }
-
 function fmtNum(v){
   if(!v) return '';
   const n=parseFloat(v.replace(/,/g,''));
   if(!isNaN(n)&&n>=1000) return '$'+n.toLocaleString('zh-TW');
   return v;
 }
-
 function buildTable(id, data, headers, start){
   const tbl=document.getElementById(id);
   tbl.innerHTML='';
@@ -741,13 +706,11 @@ function buildTable(id, data, headers, start){
     });
   }
 }
-
 function buildAll(){
   buildTable('dbTable1',DB_SHEET1,DB_H1,2);
   buildTable('dbTable2',DB_SHEET2,DB_H2,1);
   updateStats();
 }
-
 function switchDbTab(tab,btn){
   dbTab=tab;
   document.querySelectorAll('.db-tab').forEach(b=>b.classList.remove('active'));
@@ -757,7 +720,6 @@ function switchDbTab(tab,btn){
   document.getElementById('dbSearch').value='';
   filterDbTable();
 }
-
 function filterDbTable(){
   const q=document.getElementById('dbSearch').value.toLowerCase().trim();
   const tbId=dbTab==='sheet1'?'dbTable1':'dbTable2';
@@ -772,21 +734,16 @@ function filterDbTable(){
   });
   document.getElementById('dbStats').textContent=q?`搜尋到 ${vis} 筆`:`共 ${vis} 筆`;
 }
-
 function updateStats(){
   const tbId=dbTab==='sheet1'?'dbTable1':'dbTable2';
   const tb=document.getElementById(tbId).tBodies[0];
   document.getElementById('dbStats').textContent=`共 ${tb?tb.rows.length:0} 筆`;
 }
-
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&dbOpen) toggleDbPopup(); });
 </script>
     <div id="searchResults">
-      <div class="search-hint">輸入關鍵字搜尋所有工作階段與細項</div>
     </div>
   </div>
 </div>
-
-
 </html>
 </body></html>
